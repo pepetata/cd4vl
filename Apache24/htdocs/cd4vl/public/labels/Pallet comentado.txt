@@ -1,0 +1,41 @@
+^XA - inicio
+~TA000 - Tear-off adjust position
+~JSN - Change backfeed sequence
+^LT0 - Label top
+^MMT - Print mode
+^MNW - 	Media tracking
+^PON - 	Print orientation
+^PMN - 	Print mirror image
+^LH0,0 - Label home
+^JMA - Set print density - 
+^PR4,4 - Print rate
+^MD0 - Modify darkness
+^JUS - Configuration update
+^LRN - Label Reverse Print 
+^CI0 - Change international font (charsets 0-13, 15, 27, 28, 31, 33-36 only)
+^XZ - End format 
+<DATA_BODY>
+^XA
+^LL1200 - Label length
+^LS0 - Label shift
+^FT60,252 - Label shift
+^A0N,42,40 - Label shift
+^FH\ -Field hexadecimaml indicator
+^FDCustomer - Field hexadecimaml indicator
+^FS - Field separator
+
+
+^FT60,174^A0N,83,64^FH\^FD${assignment.customerInfo.customerNumber}^FS
+^FT540,174^A0N,83,64^FH\^FD${assignment.number}^FS
+^FT540,252^A0N,42,40^FH\^FDAssignment Number^FS
+^FT60,389^A0N,58,57^FH\^FD${assignment.operator.operatorIdentifier}^FS
+^FT60,462^A0N,42,40^FH\^FDPicker^FS
+^FT540,779^A0N,58,52^FH\^FD${assignment.deliveryDate?string("MM/dd/yyyy")}^FS
+^FT60,779^A0N,58,52^FH\^FD${assignment.route}^FS
+^FT60,852^A0N,42,40^FH\^FDRoute^FS
+^FT540,852^A0N,42,40^FH\^FDDate^FS
+^FT60,1014^A0N,83,81^FH\^FD${assignment.deliveryLocation}^FS
+^FT60,1092^A0N,42,40^FH\^FDDlvy Location^FS
+^PQ<COPIES/>,0,1,Y - Print quantity
+^XZ
+</DATA_BODY>

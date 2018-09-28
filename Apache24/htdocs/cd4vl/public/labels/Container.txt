@@ -1,0 +1,19 @@
+^XA~TA000~JSN^LT0^MMT^MNW^PON^PMN^LH0,0^JMA^PR4,4^MD0^JUS^LRN^CI0^XZ
+<DATA_BODY>^XA^LL1200
+^LS0
+^FT60,174^A0N,83,81^FH\^FD${assignment1.customerInfo.customerNumber}^FS
+^FT60,252^A0N,42,40^FH\^FDCustomer^FS
+^FT540,174^A0N,83,81^FH\^FD${assignment1.number}^FS
+^FT540,252^A0N,42,40^FH\^FDAssignment Number^FS
+^FT60,389^A0N,58,57^FH\^FD${assignment1.operator.operatorIdentifier}^FS
+^FT60,462^A0N,42,40^FH\^FDPicker^FS
+^FT60,779^A0N,58,57^FH\^FD${assignment1.route}^FS
+^FT60,852^A0N,42,40^FH\^FDRoute^FS
+^FT540,779^A0N,58,57^FH\^FD${assignment1.deliveryDate?string("MM/dd/yyyy")}^FS
+^FT540,852^A0N,42,40^FH\^FDDate^FS
+^FT540,1014^A0N,83,81^FH\^FD${container.containerNumber}^FS
+^FT540,1092^A0N,42,40^FH\^FDContainer #^FS
+^FT60,1014^A0N,83,81^FH\^FD${assignment1.deliveryLocation}^FS
+^FT60,1092^A0N,42,40^FH\^FDDlvy Location^FS
+^PQ<COPIES/>,0,1,Y^XZ
+</DATA_BODY>

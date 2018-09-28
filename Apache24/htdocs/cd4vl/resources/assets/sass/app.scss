@@ -1,0 +1,143 @@
+
+// Fonts
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css';
+// @import '~bootstrap/scss/bootstrap';
+// All Files	C:\eCommerce\PHP\php for apache\Apache24\htdocs\dv\node_modules\bootstrap\scss\bootstrap.scss
+
+.h1, h1 {
+   font-size: 2rem;
+}
+.h2, h2 {
+   font-size: 1.5rem;
+}
+.blink_me {
+   color: red;
+   font-weight: bold;
+   display: none;
+   animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+   50% {
+      opacity: 0;
+   }
+}
+
+#mainsession {
+   margin: 10px;
+}
+
+#LocationSections hr {
+   margin: 4px;
+}
+
+.locationRow {
+   margin: 5px;
+}
+
+.divBorder {
+   margin: 10px;
+   background-color: peachpuff;
+   padding-bottom: 10px;
+   padding-top: 10px;
+}
+
+.vertical {
+   margin: auto;
+}
+
+.dvLabel {
+   margin: 5px;
+}
+
+.updateDV{
+   background-color: antiquewhite;
+}
+
+.myButton {
+   -moz-box-shadow: 3px 4px 0px 0px #899599;
+   -webkit-box-shadow: 3px 4px 0px 0px #899599;
+   box-shadow: 3px 4px 0px 0px #899599;
+   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+   background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+   background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+   background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+   background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+   background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+   background-color:#ededed;
+   -moz-border-radius:15px;
+   -webkit-border-radius:15px;
+   border-radius:15px;
+   border:1px solid #d6bcd6;
+   display:inline-block;
+   cursor:pointer;
+   color:#1a44eb;
+   font-family:Arial;
+   font-size:15px;
+   padding:7px 18px;
+   text-decoration:none;
+   text-shadow:0px 1px 0px #e1e2ed;
+}
+.myButton:hover {
+   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+   background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+   background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+   background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+   background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+   background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+   background-color:#bab1ba;
+}
+.myButton:active {
+   position:relative;
+   top:1px;
+}
+
+.addButton {
+   padding: 4px 10px;
+   margin: 0px 2px;
+}
+
+.header {
+   display: grid;
+   width: 99%;
+   grid-template-columns: 95% 5%;
+}
+.dvBut {
+   width: 50%;
+   height: auto;
+}
+
+.dv {
+   padding: 7px 8px;
+}
+
+#configurarDiv  {
+   margin: auto;
+   width: 40%;
+}
+
+#instructions  {
+   margin: auto;
+   width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+   #configurarDiv, #instructions {
+      margin: auto;
+      width: 100%;
+   }
+}
+
+@media only screen and (max-width: 800px) {
+   #configurarDiv, #instructions {
+      margin: auto;
+      width: 80%;
+   }
+}

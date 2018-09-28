@@ -1,0 +1,63 @@
+laravel new dv
+php artisan make:migration create_dvlocations_table --create=dvlocations
+php artisan make:model DVLocations
+php artisan make:controller PagesController
+php artisan make:controller Voc_Site
+
+
+-------------------------------------------------------------------------------------
+laravel new dvt
+
+  ---->>> IMPORTANTE: o nome da tabela tem que ser no plural: terminado com s
+php artisan make:migration create_minhatabela_table --create=minhatabela
+php artisan make:migration create_lynks_table --create=lynks
+   database/migrations/{{datetime}}_create_links_table.php:
+   Schema::create('lynks', function (Blueprint $table) {
+      $table->increments('id');
+      $table->string('title');
+      $table->string('url')->unique();
+      $table->text('description');
+      $table->timestamps();
+   });
+
+php artisan migrate
+php artisan migrate:fresh    --> drop and create tables
+
+php artisan make:model --factory MinhaTabela  --> create models
+php artisan make:model --factory Lynks
+    database/factories
+    $factory->define(App\Lynks::class, function (Faker $faker) {
+    return [
+        'title' => substr($faker->sentence(2), 0, -1),
+        'url' => $faker->url,
+        'description' => $faker->paragraph
+       ];
+   });
+
+php artisan make:seeder LynksTableSeeder    --> create seeder
+php artisan make:seeder MinhaTabelaTableSeeder
+    database/seeds/LynksTableSeeder.php:
+    public function run()
+      {
+       factory(App\Lynks::class, 5)->create();
+      }
+
+      database/seeds/DatabaseSeeder.php:
+      public function run()
+         {
+            $this->call(LynksTableSeeder::class);
+            $this->call(MinhaTabelaTableSeeder::class);
+         }
+
+
+php artisan migrate:fresh --seed    --> drop and create tables and seed fake data
+
+php artisan make:test SubmitLinksTest
+vendor/bin/phpunit
+php artisan route:list
+---------------------------------------------------------------------------------------------
+
+composer create-project laravel/laravel aprendendo-laravel --prefer-dist
+php artisan make:controller PagesController
+
+
