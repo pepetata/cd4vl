@@ -105,10 +105,11 @@ function tabup(evt) {
 function fillPostAisle() {
    // check if selected site
    if (!$("#fillPostAisleData").val()) {
-      alert("Preencha o campo com o conteúdo que deseja!!!");
+      alert(alertMsg[1]);
       return;
    }
-   if (!confirm('Confirma que deseja copiar o text "' + $("#fillPostAisleData").val() + ' em todos os campos Pós-corredor abaixo?"?'))
+   console.log(alertMsg[2]);
+   if (!confirm(alertMsg[2] + $("#fillPostAisleData").val() + '?'))
       return;
 
 
@@ -126,7 +127,7 @@ function fillPostAisle() {
 
 function emptyPostAisle() {
    // check if selected site
-   if (!confirm('Confirma que deseja apagar o conteúdo em todos os campos Pós-corredor abaixo?"?'))
+   if (!confirm(alertMsg[3]))
       return;
 
    var fn = function xx(subCatObj, index) { // sample async action
@@ -144,10 +145,10 @@ function emptyPostAisle() {
 function fillPreAisle() {
    // check if selected site
    if (!$("#fillPreAisleData").val()) {
-      alert("Preencha o campo com o conteúdo que deseja!!!");
+      alert(alertMsg[1]);
       return;
    }
-   if (!confirm('Confirma que deseja copiar o text "' + $("#fillPreAisleData").val() + ' em todos os campos Pré-corredor abaixo?"?'))
+   if (!confirm(alertMsg[4] + $("#fillPreAisleData").val() + '?'))
       return;
 
    var fn = function xx(subCatObj, index) { // sample async action
@@ -164,7 +165,7 @@ function fillPreAisle() {
 
 function emptyPreAisle() {
    // check if selected site
-   if (!confirm('Confirma que deseja apagar o conteúdo em todos os campos Pré-corredor abaixo?"?'))
+   if (!confirm(alertMsg[5]))
       return;
 
    var fn = function xx(subCatObj, index) { // sample async action
@@ -180,9 +181,9 @@ function emptyPreAisle() {
 ;
 
 function fillSlot() {
-   if (!confirm('Confirma que deseja numerar todos os endereços abaixo ?'))
+   if (!confirm(alertMsg[6]))
       return;
-   var start = prompt("Número inicial?", 1);
+   var start = prompt(alertMsg[7], 1);
 
    var fn = function xx(subCatObj, index) { // sample async action
       return new Promise(function (resolve, reject) {
@@ -206,10 +207,10 @@ function fillSlot() {
 function copyFromVL() {
    // check if selected site
    if (!$("#site").val()) {
-      alert("Selecione o Centro de Distribuição antes!!!");
+      alert(alertMsg[8]);
       return;
    }
-   if (!confirm('Confirma que deseja copiar os endereços do VL?'))
+   if (!confirm(alertMsg[9]))
       return;
    $("#copying").show();
    $.ajax({
@@ -226,9 +227,9 @@ function copyFromVL() {
          }
          setTimeout(function () {
             if (data == 0)
-               alert('Nada encontrado para copiar');
+               alert(alertMsg[10]);
             else
-               alert('Copia finalizada!!! Endereços copiados = ' + data);
+               alert(alertMsg[11] + data);
          }, 100);
 
 
@@ -244,10 +245,10 @@ function copyFromVL() {
 function copyFromAisle() {
    // check if selected site
    if (!$("#fromAisle").val()) {
-      alert("Selecione o corredor de origem!!!");
+      alert(alertMsg[12]);
       return;
    }
-   if (!confirm('Confirma que deseja copiar os dados corredor ' + $("#fromAisle").val() + ' para o corredor' + $("#aisle").val() + ' ?'))
+   if (!confirm( alertMsg[13] + $("#fromAisle").val() + ' ?'))
       return;
    $("#copyingFromAisle").show();
 
@@ -604,24 +605,23 @@ function generateDV() {
    var ids = check.ids;
    var checked = check.checked;
    if (!checked) {
-      alert("Selecione os endereços antes!!!");
+      alert(alertMsg[1]);
       return;
    }
-   if (!confirm('Confirma que gerar DVs para os endereços selecionados?'))
+   if (!confirm(alertMsg[2]))
       return;
-   var numdigits = prompt("Quantidade de dígitos no DV?", numDigitsDefault);
+   var numdigits = prompt(alertMsg[3], numDigitsDefault);
 
    if (numdigits == null || numdigits == "") {
       return;
    }
    if (numdigits > 5 || numdigits < 2) {
-      alert("Informe um número entre 2 e 5!!!");
+      alert(alertMsg[4]);
       return;
    }
    numDigitsDefault = numdigits;
 
    $("#generating").show();
-   console.log('ids', ids);
    $.ajax({
       type: 'GET',
       url: 'generateDV',
@@ -630,7 +630,6 @@ function generateDV() {
          var e = {};
          e.target = {};
          e.target.value = $("#aisle").val();
-         console.log(locsFrom)
          if (locsFrom === 'aisle')
             changedAisleDV(e);
          else
@@ -649,7 +648,7 @@ function generateDV() {
 
 function loadTextLocs(e) {
    if (!$("#slotList").val()) {
-      alert("Preencha o campo com os endereços que deseja mostrar!!!");
+      alert(alertMsg[5]);
       return;
    }
    var lines = $('#slotList').val().split('\n');
@@ -669,7 +668,7 @@ function loadTextLocs(e) {
 ;
 
 function updateDVVLSel(dv) {
-   if (!confirm('Confirma que deseja atualizar o ' + dv.toUpperCase() + ' no VoiceLink?'))
+   if (!confirm(alertMsg[6]))
       return;
 
    $("#updating").show();
@@ -680,7 +679,7 @@ function updateDVVLSel(dv) {
       data: {dv: dv, siteId: $("#site").val()},
       success: function (data) {
          $("#updating").hide();
-         alert('Atualização efetuada com sucesso!!')
+         alert(alertMsg[7])
       },
       error: function (jqXHR, textStatus, errorThrown) {
          $("#generating").hide();
@@ -692,49 +691,22 @@ function updateDVVLSel(dv) {
 }
 ;
 
-function lixo() {
-//function updateDVVLToday(dv) {
-//   if (!confirm('Confirma que deseja atualizar no VoiceLink os endereços alterados hoje?'))
-//      return;
-//
-//   $("#updating").show();
-//
-//   $.ajax({
-//      type: 'GET',
-//      url: 'updateVLToday',
-//      data: {dv: dv},
-//      success: function (data) {
-//         $("#updating").hide();
-//         alert('Atualização efetuada com sucesso!!')
-//      },
-//      error: function (jqXHR, textStatus, errorThrown) {
-//         $("#generating").hide();
-//         console.log(jqXHR, textStatus, errorThrown);
-//         $("#updating").hide();
-//      }
-//   });
-//
-//}
-//;
-}
-;
-
 function printDVSel() {
    var check = checkCB();
    var ids = check.ids;
    var checked = check.checked;
    if (!checked) {
-      alert("Selecione os endereços antes!!!");
+      alert(alertMsg[1]);
       return;
    }
-   if (!confirm('Confirma que deseja imprimir as etiquetas dos endereços selecionados?'))
+   if (!confirm(alertMsg[8]))
       return;
 
    var printer;
    if (localStorage.printer)
       printer = localStorage.printer;
 
-   printer = prompt("Qual 'e o IP da impressora?", printer);
+   printer = prompt(alertMsg[9], printer);
    localStorage.printer = printer;
 
    $("#printing").show();
@@ -745,7 +717,7 @@ function printDVSel() {
       data: {ids: ids, printer: printer},
       success: function () {
 
-         alert("As etiquetas foram enviadas para a impressora com sucesso!!!");
+         alert(alertMsg[10]);
          $("#printing").hide();
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -759,7 +731,7 @@ function printDVSel() {
 
 function saveConf() {
 //   $("#configuring").empty();
-   $("#configuring").html('Aguarde!! Gravando os parametros informados!!!');
+   $("#configuring").html(alertMsg[1]);
    $("#configuring").show();
 
    $.ajax({
@@ -768,12 +740,10 @@ function saveConf() {
       data: {host: $("#host").val(), port: $("#port").val(), db: $("#db").val(), user: $("#user").val(), pass: $("#pass").val(), },
       success: function (dataJ) {
          var data = JSON.parse(dataJ);
-         console.log(data.error, data.desc);
          if (data.error !== 0) {
             $("#configuring").html(data.desc);
-            console.log('ta aqui')
          } else {
-            alert("Parâmetros gravados e tabela criada com sucesso!!!");
+            alert(alertMsg[2]);
             $("#configuring").hide();
          }
       },

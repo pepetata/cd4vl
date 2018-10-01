@@ -3,11 +3,11 @@
 @section('headernav')
 @parent
 <div class="text-center">
-   <h1>Sistema Auxiliar ao VoiceLink - Configurar</h1>
+   <h1>@lang('lang.configurar.title')</h1>
 </div>
 <div>
    <nav class="float-right">
-      <a href="index.php">Voltar</a>
+      <a href="index.php">@lang('lang.back')</a>
    </nav>
 </div>
 @endsection
@@ -25,7 +25,7 @@
    $user = env('DB_USERNAME');
    $pass = env('DB_PASSWORD');
    ?>
-   <h2 class="text-center">Configuração do Banco de Dados</h2>
+   <h2 class="text-center">@lang('lang.configurar.h2')</h2>
    <br>
    <div id="configurarDiv">
       <div class="input-group">
@@ -60,8 +60,8 @@
       </div>
       <br>
       <div class="text-center">
-         <button type="button" onclick="saveConf()" class="myButton">Gravar</button>
-         <button type="button" onclick="location.href = 'index.php'" class="myButton">Cancelar</button>
+         <button type="button" onclick="saveConf()" class="myButton">@lang('lang.configurar.save')</button>
+         <button type="button" onclick="location.href = 'index.php'" class="myButton">@lang('lang.configurar.cancel')</button>
          <br><br>
          <label id="configuring" class="blink_me">Aguarde!! Gravando os parametros informados!!!</label>
       </div>
@@ -82,5 +82,13 @@
 
       document.onkeydown = tabup;
    });
+      
+      var alertMsg = (function () {
+      return {
+         1: "@lang('lang.configurar.alert1')",
+         2: "@lang('lang.configurar.alert2')"
+      }
+   }());
+
 </script>
 @endsection

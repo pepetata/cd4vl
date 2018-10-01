@@ -47,7 +47,7 @@ class DVController extends Controller {
          $num = $s[0];
          $i = preg_match('/\D/', $slot, $s);
          $level = $s[0];
-         echo "\r\n" . $slot . '  tem nivel ' . $num . '-' . $level . "\r\n";
+//         echo "\r\n" . $slot . '  tem nivel ' . $num . '-' . $level . "\r\n";
          // one slot up
          $newlevel = substr($levels, strpos($levels, $level) + 1, 1);
          $newslot = $num . $newlevel;
@@ -78,7 +78,7 @@ class DVController extends Controller {
       function hasNoLevel($dv, $location) {
          // there is not level 3 -> check 2 4
          $slot = $location[0]['slot'];
-         echo $slot . ' nao tem nivel' . "\r\n";
+//         echo $slot . ' nao tem nivel' . "\r\n";
          // one slot left
          $newslot = strval((int) $slot - 1);
          $res = checkThisLoc($dv, $location[0]['preAisle'], $location[0]['aisle'], $location[0]['postAisle'], $newslot);
@@ -98,7 +98,7 @@ class DVController extends Controller {
       }
 
       function checkThisLoc($dv, $preAisle, $aisle, $postAisle, $slot) {
-         echo ' procurando ' . 'preAisle ' . $preAisle . ' aisle ' . $aisle . ' postAisle ' . $postAisle . ' slot ' . $slot . "\r\n";
+//         echo ' procurando ' . 'preAisle ' . $preAisle . ' aisle ' . $aisle . ' postAisle ' . $postAisle . ' slot ' . $slot . "\r\n";
 //         $queries = DB::getQueryLog();
 //         var_dump($queries);
          $newlocation = DVLocations::where([['preAisle', $preAisle],
@@ -123,7 +123,7 @@ class DVController extends Controller {
 //          var_dump($sameSlots);
          $geNewDV = false;
          foreach ($sameSlots as $sameSlot) {
-            echo ' ----' . $sameSlot->locid . ' dv= ' . $sameSlot->dv1 . ' ' . $sameSlot->dv2 . ' ' . $sameSlot->dv3 . ' ' . $sameSlot->dv4 . ' ' . $sameSlot->dv5;
+//            echo ' ----' . $sameSlot->locid . ' dv= ' . $sameSlot->dv1 . ' ' . $sameSlot->dv2 . ' ' . $sameSlot->dv3 . ' ' . $sameSlot->dv4 . ' ' . $sameSlot->dv5;
             $geNewDV = ($dv === $sameSlot->dv1 || $dv === $sameSlot->dv2 ||
                     $dv === $sameSlot->dv3 || $dv === $sameSlot->dv4 ||
                     $dv === $sameSlot->dv5);
@@ -148,7 +148,7 @@ class DVController extends Controller {
                $geNewDV = true;
                while ($geNewDV) {
                   $dv = dvGen($i, $numdigits);
-                  echo "\r\n" . "slot $slot dv $i =" . $dv . "\r\n";
+//                  echo "\r\n" . "slot $slot dv $i =" . $dv . "\r\n";
                   $geNewDV = checkSameSlot($i, $dv, $dvSlot);
                   if (!$geNewDV)
                      $geNewDV = checkNeighborsSlot($dv, $location);
@@ -174,7 +174,7 @@ class DVController extends Controller {
       $dv = $request->input('dv');
       $locations = DVLocations::where('site', $siteId)->get();
       foreach ($locations as $location) {
-         echo 'DV locid=' . $location['locid'] . "\r\n";
+//         echo 'DV locid=' . $location['locid'] . "\r\n";
          $loc = VLLocations::where('scannedVerification', $location['locid'])->update([
              'checkDigits' => $location[$dv],
              'preAisle' => $location['preAisle'],
@@ -187,24 +187,6 @@ class DVController extends Controller {
    }
 
    public function updateVLToday(Request $request) {
-//      set_time_limit(0);
-////      DB::connection()->enableQueryLog();
-//
-//      $dv = $request->input('dv');
-//
-//
-//      $locations = DVLocations::whereRaw('cast(updated_at as date) = CAST(GETDATE() AS DATE)') -> get();
-//      foreach ($locations as $location) {
-//         echo 'DV locid=' . $location['locid'] . "\r\n";
-//         $loc = VLLocations::where('scannedVerification', $location['locid'])->update([
-//             'checkDigits' => $location[$dv],
-//             'preAisle' => $location['preAisle'],
-//             'aisle' => $location['aisle'],
-//             'postAisle' => $location['postAisle'],
-//             'slot' => $location['slot'],
-//         ]);
-////         var_dump(DB::getQueryLog());
-//      }
    }
 
    public function printDVSel(Request $request) {
@@ -244,7 +226,7 @@ class DVController extends Controller {
          $data = str_replace("{dv3}", centralizeDV($location[0]['dv3']), $data);
          $data = str_replace("{dv4}", centralizeDV($location[0]['dv4']), $data);
          $data = str_replace("{dv5}", centralizeDV($location[0]['dv5']), $data);
-         echo $data;
+//         echo $data;
 
          $dsn = $printer;
          $client->connect($dsn);

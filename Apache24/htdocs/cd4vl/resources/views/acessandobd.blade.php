@@ -3,11 +3,11 @@
 @section('headernav')
 @parent
 <div class="text-center">
-   <h1>Sistema Auxiliar ao VoiceLink - Configurar</h1>
+   <h1>@lang('lang.acessandodb.title')</h1>
 </div>
 <div>
    <nav class="float-right">
-      <a href="index.php">Voltar</a>
+      <a href="index.php">@lang('lang.back')</a>
    </nav>
 </div>
 @endsection
@@ -25,8 +25,8 @@
    $user = env('DB_USERNAME');
    $pass = env('DB_PASSWORD');
    ?>
-   <h1 class="text-center">Acessando o bando de dados do VoiceLink</h1>
-   <h2 class="text-center">Aguarde...</h2>
+   <h1 class="text-center">@lang('lang.acessandodb.h1')</h1>
+   <h2 class="text-center">@lang('lang.acessandodb.h2')</h2>
    <br>
 </section>
 @endsection

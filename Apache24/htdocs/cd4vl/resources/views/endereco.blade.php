@@ -3,13 +3,13 @@
 @section('headernav')
 @parent
 <div class="text-center">
-   <h1>Sistema Auxiliar ao VoiceLink - Endereçamento</h1>
+   <h1>@lang('lang.endereco.title')</h1>
 </div>
 <div>
-<nav class="float-right">
-   <a href="index.php">Voltar</a>
-</nav>
-   </div>
+   <nav class="float-right">
+      <a href="index.php">@lang('lang.back')</a>
+   </nav>
+</div>
 @endsection
 
 
@@ -18,14 +18,7 @@
 @parent
 <header>
    <?php
-//            $regions = DB::select('select siteId, name from voc_site');
-//   $sites = DB::table('voc_site')->get();
-//   $rows = ['voc_site' => $sites];
-   $sites[''] = "Selection o CD";
-//   echo gettype($sites);
-//   dump($sites);
-//   dump($rows);
-//   $site = [];
+   $sites[''] = __('lang.endereco.selectcd');
    ?>
    <section id='locationFunctions'>
       <div class="row text-center divBorder">
@@ -36,47 +29,35 @@
                @endif
 
                @if (sizeof($sites) > 1)
-               {!!  Form::label('site','Centro de Distribuição: ')  !!}
+               {!!  Form::label('site',__('lang.endereco.cd'))  !!}
                {!! Form::select('site', $sites, null) !!}
                @endif
             </div>
          </div>
          <div class='col vertical'>
             <div id="copyButton">
-               <button type="button" onclick="copyFromVL()" class="myButton">Copiar endereços do VoiceLink</button>
-               <label id="copying" class="blink_me">Aguarde!! Copiando endereços do VoiceLink</label>
+               <button type="button" onclick="copyFromVL()" class="myButton">@lang('lang.endereco.copyVL')</button>
+               <label id="copying" class="blink_me">@lang('lang.endereco.copying')</label>
             </div>
          </div>
          <div class='col vertical'>
             <div id="copyFromAisleDiv" class='invisible'>
-               <label>Copiar do corredor: 
+               <label>@lang('lang.endereco.copyaisle')
                   <select id="fromAisle" name="aisle">
                      <option value=""></option>
                   </select>
                </label>
-               <button type="button" onclick="copyFromAisle()" class="myButton">Copiar do corredor</button>
-               <label id="copyingFromAisle" class="blink_me">Aguarde!! Copiando endereços do corredor</label>
+               <button type="button" onclick="copyFromAisle()" class="myButton">@lang('lang.endereco.copyaisleB')</button>
+               <label id="copyingFromAisle" class="blink_me">@lang('lang.endereco.copyingaisle')</label>
             </div>
          </div>
-         <!--         <div class='col vertical'>
-                     <div id="importButton">
-                        <form id="formImportCSV" method="post" action="importCSV" enctype="multipart/form-data">
-                           <label>Importe os endereços de um arquivo CSV</label>
-                           <input type="file" id="file" name='importCSV' accept=".csv">
-                           <br><br>
-                           <button type="submit" ">Importar aquivo cvs</button>
-                                             <button type="button" onclick="importCSV()">Importar aquivo cvs</button>
-                           <label id="importing" class="blink_me">Aguarde!! Importando endereços do arquivo.</label>
-                        </form>
-                     </div>
-                  </div>-->
       </div>
    </section>
    <section id='filterAisles'>
       <div class="row">
          <div class='col'>
             <div id="filterInput" class='invisible'>
-               <label>Filtrar por corredor: 
+               <label>@lang('lang.endereco.filter')
                   <select id="aisle" name="aisle">
                      <option value=""></option>
                   </select>
@@ -94,35 +75,32 @@
                   <input id='cbheader' type="checkbox" >
                </div>-->
       <div class='col'>
-         <label>Código</label>
+         <label><strong>@lang('lang.endereco.id')</strong></label>
       </div>
       <div id='preaisleL' class='col'>
          <button type="button" onclick="fillPreAisle()" class="myButton mb-2"
-                 data-toggle="tooltip" data-placement="bottom" title="Preencher o pré-corredor com o conteúdo informado">Pré-corredor</button>
+                 data-toggle="tooltip" data-placement="bottom" title="@lang('lang.endereco.preaisleH')">@lang('lang.endereco.preaisle')</button>
          <button type="button" onclick="emptyPreAisle()" class="myButton text-danger mb-2"
-                 data-toggle="tooltip" data-placement="bottom" title="Apagar o conteúdo existente no pré-corredor">X</button>
+                 data-toggle="tooltip" data-placement="bottom" title="@lang('lang.endereco.preaisleXH')">X</button>
          <input id="fillPreAisleData">
       </div>
       <div class='col'>
-         <label>Corredor</label>
+         <label><strong>@lang('lang.endereco.aisle')</strong></label>
       </div>
       <div id='postaisleL' class='col'>
          <button type="button" onclick="fillPostAisle()" class="myButton mb-2"
-                 data-toggle="tooltip" data-placement="bottom" title="Preencher o pós-corredor com o conteúdo informado">Pós-corredor</button>
+                 data-toggle="tooltip" data-placement="bottom" title="@lang('lang.endereco.postaisleH')">@lang('lang.endereco.postaisle')</button>
          <button type="button" onclick="emptyPostAisle()" class="myButton text-danger mb-2"
-                 data-toggle="tooltip" data-placement="bottom" title="Apagar o conteúdo existente no pós-corredor">X</button>
+                 data-toggle="tooltip" data-placement="bottom" title="@lang('lang.endereco.postaisleXH')">X</button>
          <input id="fillPostAisleData">
       </div>
       <div class='col'>
-         <label>Endereço</label>
+         <label><strong>@lang('lang.endereco.slot')</strong></label>
          <button type="button" onclick="fillSlot()" class="myButton mb-2"
-                 data-toggle="tooltip" data-placement="bottom" title="Alterar o conteúdo de todos os endereços iniciando pelo número que vai ser informado" >+1 Todos</button>
+                 data-toggle="tooltip" data-placement="bottom" title="@lang('lang.endereco.add1H')" >@lang('lang.endereco.add1')</button>
       </div>
       <div class='col-1'>
       </div>
-      <!--      <div class='col-3'>
-               <label>Dígitos de Verificação</label>
-            </div>-->
    </div>
    <hr>
    <div id='dynamicLocs'>
@@ -140,5 +118,24 @@
 
       document.onkeydown = tabup;
    });
+
+   var alertMsg = (function () {
+      return {
+         1: "@lang('lang.endereco.alert1')",
+         2: "@lang('lang.endereco.alert2')",
+         3: "@lang('lang.endereco.alert3')",
+         4: "@lang('lang.endereco.alert4')",
+         5: "@lang('lang.endereco.alert5')",
+         6: "@lang('lang.endereco.alert6')",
+         7: "@lang('lang.endereco.alert7')",
+         8: "@lang('lang.endereco.alert8')",
+         9: "@lang('lang.endereco.alert9')",
+         10: "@lang('lang.endereco.alert10')",
+         11: "@lang('lang.endereco.alert11')",
+         12: "@lang('lang.endereco.alert12')",
+         13: "@lang('lang.endereco.alert13')"
+      }
+   }());
+
 </script>
 @endsection

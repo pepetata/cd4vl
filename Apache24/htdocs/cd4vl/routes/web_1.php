@@ -22,29 +22,28 @@ Route::get('locale/{locale}', function ($locale) {
    echo \App::getLocale();
     return redirect()->back();
 });
-
 Route::get('/', 'PagesController@welcome');
-//Route::get('/', 'PagesController@index');
-Route::get('/index.php', 'PagesController@index');
-Route::get('/endereco', 'PagesController@endereco');
-Route::get('/dv', 'PagesController@dv');
-Route::get('/configurar', 'PagesController@configurar');
+Route::get('{locale}/', 'PagesController@index');
+Route::get('{locale}/index.php', 'PagesController@index');
+Route::get('{locale}/endereco', 'PagesController@endereco');
+Route::get('{locale}/dv', 'PagesController@dv');
+Route::get('{locale}/configurar', 'PagesController@configurar');
 //Route::get('/acessandodb/{page}', 'PagesController@acessandodb');
-Route::get('/acessandodb', 'PagesController@acessandodb');
+Route::get('{locale}/acessandodb', 'PagesController@acessandodb');
 
-Route::get('/copyFromVL', 'LocationController@copyFromVL');
-Route::get('/getAisles', 'LocationController@getAisles');
-Route::get('/getLocs', 'LocationController@getLocs');
-Route::get('/updateData', 'LocationController@updateData');
-Route::get('/updateLocation', 'LocationController@updateLocation');
-Route::post('/importCSV', 'LocationController@importCSV');
+Route::get('{locale}/copyFromVL', 'LocationController@copyFromVL');
+Route::get('{locale}/getAisles', 'LocationController@getAisles');
+Route::get('{locale}/getLocs', 'LocationController@getLocs');
+Route::get('{locale}/updateData', 'LocationController@updateData');
+Route::get('{locale}/updateLocation', 'LocationController@updateLocation');
+Route::post('{locale}/importCSV', 'LocationController@importCSV');
 
-Route::get('/generateDV', 'DVController@generateDV');
-Route::get('/updateVL', 'DVController@updateVL');
-Route::get('/updateVLToday', 'DVController@updateVLToday');
-Route::get('/printDVSel', 'DVController@printDVSel');
+Route::get('{locale}/generateDV', 'DVController@generateDV');
+Route::get('{locale}/updateVL', 'DVController@updateVL');
+Route::get('{locale}/updateVLToday', 'DVController@updateVLToday');
+Route::get('{locale}/printDVSel', 'DVController@printDVSel');
 
-Route::get('/saveConf', 'EnvController@saveConf');
+Route::get('{locale}/saveConf', 'EnvController@saveConf');
 
 Route::fallback(function ($request) {
     var_dump($request);

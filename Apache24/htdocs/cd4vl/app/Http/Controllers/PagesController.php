@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DVLocations;
 use Maatwebsite\Excel\Excel;
+use App;
 
 class PagesController extends Controller {
 
-   public function index() {
+   public function index(Request $request) {
       return view('welcome');
    }
 
-   public function endereco() {
+   public function welcome() {
+      return view('welcome');
+   }
+
+   public function endereco(Request $request) {
       try {
          $sites = \App\Voc_Sites::orderBy('name')->pluck('name', 'siteId');
       } catch (\Exception $e) {
@@ -23,7 +28,7 @@ class PagesController extends Controller {
       return view('endereco', compact('sites'));
    }
 
-   public function dv() {
+   public function dv(Request $request) {
       try {
          $sites = \App\Voc_Sites::orderBy('name')->pluck('name', 'siteId');
       } catch (\Exception $e) {
@@ -32,14 +37,13 @@ class PagesController extends Controller {
       return view('dv', compact('sites'));
    }
 
-   public function configurar() {
+   public function configurar(Request $request) {
       return view('configurar');
    }
 
    public function acessandodb(Request $request) {
-      $p= $request->input('p');
-//redirect()->route('acessandobd', ['p' => $p]);
-      return view('acessandobd',['p' => $p]);
+      $p = $request->input('p');
+      return view('acessandobd', ['p' => $p]);
    }
 
 }

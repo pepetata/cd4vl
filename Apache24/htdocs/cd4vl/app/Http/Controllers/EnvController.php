@@ -49,17 +49,17 @@ class EnvController extends Controller {
             //
          }
       } catch (\Exception $e) {
-         return json_encode(['error' => 1, 'desc' => "Falha na conexão ao banco de dados. Reveja os parametros informados"]);
+         return json_encode(['error' => 1, 'desc' => __('lang.connection.failed.parms')]);
       }
 
 
       // check if table exists
       try {
          if (Schema::hasTable('dv_locations')) {
-            return json_encode(['error' => 1, 'desc' => "Parâmetros gravados com sucesso. Tabela já existe!!!"]);
+            return json_encode(['error' => 1, 'desc' => __('lang.configurar.saved')]);
          }
       } catch (\Exception $e) {
-         return json_encode(['error' => 1, 'desc' => "Falha na conexão ao banco de dados. Reveja os parametros informados"]);
+         return json_encode(['error' => 1,  'desc' => __('lang.connection.failed.parms')]);
       }
             
       // create table
@@ -68,7 +68,7 @@ class EnvController extends Controller {
          $x->up();
       } catch (\Exception $e) {
          echo $e->getMessage();;
-         return json_encode(['error' => 1, 'desc' => "Não foi possível criar a tabela necessária!! Possível problema de permissão."]);
+         return json_encode(['error' => 1, 'desc' => __('lang.configurar.permission')]);
       }
 
 
