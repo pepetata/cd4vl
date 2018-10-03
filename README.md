@@ -13,8 +13,9 @@ To use it, run the start.bat file and open the browser with the url localhost:90
  
 NOTE: 
 - this app hasn't been tested in production yet. Be sure to have a VoiceLink database backup before testing it.
-- the labels layout is not done. You have to do it: change the file cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt
-- tested in Windowns 8
+- the label layout is not done. You have to do it: change the file cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt.
+- the label is using XPL. 
+- tested in Windowns 8.
 
  
 
