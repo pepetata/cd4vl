@@ -2,23 +2,23 @@
 ~TA000 - Tear-off adjust position
 ~JSN - Change backfeed sequence
 ^LT0 - Label top
-^MMT - Print mode
-^MNW - 	Media tracking
-^PON - 	Print orientation
-^PMN - 	Print mirror image
+^MMT - Print mode -T = Tear-off
+^MNW - 	Media tracking - W = non-continuous media web sensing , N = continuous media
+^PON - 	Print orientation -  N (normal) or I (invert)
+^PMN - 	Print mirror image -N = no
 ^LH0,0 - Label home
-^JMA - Set print density - 
+^JMA - Set print density - A = 24 dots/mm, 12 dots/mm, 8 dots/mm or 6 dots/mm, B = 12 dots/mm, 6 dots/mm, 4 dots/mm or 3 dots/mm
 ^PR4,4 - Print rate
 ^MD0 - Modify darkness
-^JUS - Configuration update
-^LRN - Label Reverse Print 
+^JUS - Configuration update - S = save current settings 
+^LRN - Label Reverse Print - N = no
 ^CI0 - Change international font (charsets 0-13, 15, 27, 28, 31, 33-36 only)
 ^XZ - End format 
 <DATA_BODY>
 ^XA
 ^LL1200 - Label length
-^LS0 - Label shift
-^FT60,252 - Label shift
+^LS0 - Label shift -- compatibilidade com z-130 --> tirei
+^FT60,252 - Field Typeset 
 ^A0N,42,40 - Label shift
 ^FH\ -Field hexadecimaml indicator
 ^FDCustomer - Field hexadecimaml indicator

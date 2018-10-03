@@ -145,7 +145,8 @@
          7: "@lang('lang.dv.alert7')",
          8: "@lang('lang.dv.alert8')",
          9: "@lang('lang.dv.alert9')",
-         10: "@lang('lang.dv.alert10')"
+         10: "@lang('lang.dv.alert10')",
+         11: "@lang('lang.dv.alert11')"
       }
    }());
 

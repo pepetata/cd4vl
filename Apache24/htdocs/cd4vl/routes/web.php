@@ -43,6 +43,7 @@ Route::get('/generateDV', 'DVController@generateDV');
 Route::get('/updateVL', 'DVController@updateVL');
 Route::get('/updateVLToday', 'DVController@updateVLToday');
 Route::get('/printDVSel', 'DVController@printDVSel');
+Route::get('/printDVToday', 'DVController@printDVToday');
 
 Route::get('/saveConf', 'EnvController@saveConf');
 

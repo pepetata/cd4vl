@@ -109,6 +109,7 @@ return [
     , 'dv.postaisle' => "Pós-corredor"
     , 'dv.slot' => "Endereço"
     , 'dv.cd' => "Dígitos de Verificação"
+    , 'dv.error.printing' => "Erro durante impressão!"
     , 'dv.alert1' => "Selecione os endereços antes!!!"
     , 'dv.alert2' => 'Confirma que deseja gerar DVs para os endereços selecionados?'
     , 'dv.alert3' => "Quantidade de dígitos no DV?"
@@ -119,6 +120,7 @@ return [
     , 'dv.alert8' => 'Confirma que deseja imprimir as etiquetas dos endereços selecionados?'
     , 'dv.alert9' => "Qual é o IP da impressora?"
     , 'dv.alert10' => "As etiquetas foram enviadas para a impressora com sucesso!!!"
+    , 'dv.alert11' => 'Confirma que deseja imprimir as etiquetas dos DVs gerados hoje?'
 
     , 'connection.failed.parms' => "Falha na conexão ao banco de dados. Reveja os parametros informados."
     , 'connection.ok.table' => "Parâmetros gravados com sucesso. A tabela já existe e não foi alterada !!!"

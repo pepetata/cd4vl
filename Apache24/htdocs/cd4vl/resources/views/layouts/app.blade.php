@@ -7,7 +7,7 @@
       <meta name="description" content="Sistema para criação de locais e de dígito de verificação para o VoiceLink">
       <meta name="author" content="Flavio Ferreira">
 
-      <title>Sistema do Flavio @yield('title')</title>
+      <title>{{__('lang.configurar.title')}}</title>
 
       <!-- Fonts -->
       <link href="{{ URL::asset('css/app.css')}}" rel="stylesheet" type="text/css">

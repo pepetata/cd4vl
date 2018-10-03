@@ -100,7 +100,7 @@ return [
     , 'dv.searchlist' => "Search locations from the list"
     , 'dv.listing' => "Wait!! Searching locations from the list"
     , 'dv.filter' => "Select aisle: "
-    , 'dv.generate' => "Generate DVs"
+    , 'dv.generate' => "Generate CDs"
     , 'dv.generating' => "Wait!! Updating CDs for selected locations."
     , 'dv.id' => "Id"
     , 'dv.preaisle' => "Pre-aisle"
@@ -108,16 +108,18 @@ return [
     , 'dv.postaisle' => "Post-aisle"
     , 'dv.slot' => "Slot"
     , 'dv.cd' => "Check Digits"
+    , 'dv.error.printing' => "Error during printing!"
     , 'dv.alert1' => "Select locations before !!!"
-    , 'dv.alert2' => 'Are you sure to generate DVs for the selected locations?'
+    , 'dv.alert2' => 'Are you sure to generate CDs for the selected locations?'
     , 'dv.alert3' => "Number of digits for the CD?"
     , 'dv.alert4' => "Enter a number between 2 and 5 !!!"
     , 'dv.alert5' => "Fill in the field with the locations you want to display !!!"
     , 'dv.alert6' => 'Do you want to update the selected CD in VoiceLink?'
     , 'dv.alert7' => 'Update performed successfully!!'
-    , 'dv.alert8' => 'Do you want to print the labels of the selected locations?'
+    , 'dv.alert8' => 'Do you want to print the labels for the selected locations?'
     , 'dv.alert9' => "What is the IP of the printer?"
     , 'dv.alert10' => "The labels were sent to the printer successfully !!!"
+    , 'dv.alert11' => 'Do you want to print the labels of the CDs generated today?'
     
 
     , 'connection.failed.parms' => "Connection to database failed. Review the reported parameters."

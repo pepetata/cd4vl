@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '')
+@section('title')
 @section('headernav')
 @parent
 <div class="text-center">

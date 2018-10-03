@@ -50,6 +50,10 @@ return [
     , 'configurar.h2' => "Configuración de la base de datos"
     , 'configurar.save' => "Grabar"
     , 'configurar.cancel' => "Cancelar"
+    , 'configurar.saved' => "Parámetros grsabados con éxito. La tabla ya existe y no fue cambiada !!!"
+    , 'configurar.permission' =>"No se pudo crear la tabla requerida !! Posible problema de permiso."
+    , 'configurar.alert1' => '¡¡Espere!! ¡Grsabando los parámetros!!'
+    , 'configurar.alert2' => "¡Parámetros guardados y tabla creada con éxito!"
 
     , 'endereco.title' => "Sistema Auxiliar de VoiceLink - Ubicación"
     , 'endereco.selectcd' => "Seleccione el CD"
@@ -72,6 +76,18 @@ return [
     , 'endereco.add1' => "+1 Todos"
     , 'endereco.add1H' => "Cambiar el contenido de todas las ubicaciones iniciando por el número que va a ser informado"
     , 'endereco.alert1' => "¡Llene el campo con el contenido que desea!"
+    , 'endereco.alert2' => 'Confirme que desea copiar el siguiente texto en todos los campos pos-pasillo:'
+    , 'endereco.alert3' => '¿Desea eliminar el contenido de todos los campos pos-pasillo a continuación?'
+    , 'endereco.alert4' => '¿Desea copiar el siguiente texto en todos los campos de Pre-pasillo?'
+    , 'endereco.alert5' => '¿Desea eliminar el contenido en todos los campos de Pre-pasillo a continuación?'
+    , 'endereco.alert6' => '¿Quieres numerar todas las ubicaciones de abajo?'
+    , 'endereco.alert7' => '¿Número inicial?'
+    , 'endereco.alert8' => '¡Seleccione el centro de distribución antes!'
+    , 'endereco.alert9' => '¿Confirmar que desea copiar las ubicaciones de VL?'
+    , 'endereco.alert10' => '¡Nada encontrado para copiar!'
+    , 'endereco.alert11' => '¡Copia terminada! Ubicaciones copiadas ='
+    , 'endereco.alert12' => "¡Seleccione el pasillo de origen!"
+    , 'endereco.alert13' => '¿Confirma que desea copiar las ubicaciones desde el pasillo'
 
     , 'dv.title' => "Sistema Auxiliar de VoiceLink - Dígitos de Verificación"
     , 'dv.selectcd' => "Seleccione el CD"
@@ -92,6 +108,18 @@ return [
     , 'dv.postaisle' => "Pós-pasillo"
     , 'dv.slot' => "Ubicación"
     , 'dv.cd' => "Dígito de Verificación"
+    , 'dv.error.printing' => "¡Error durante la impresión!"
+    , 'dv.alert1' => "¡Seleccione ubicaciones antes!"
+    , 'dv.alert2' => '¿Está seguro de generar DVs para las ubicaciones seleccionadas?'
+    , 'dv.alert3' => "¿Número de dígitos para el DV?"
+    , 'dv.alert4' => "¡Introduzca un número entre 2 y 5!"
+    , 'dv.alert5' => "¡Rellene el campo con las ubicaciones que desea mostrar!"
+    , 'dv.alert6' => '¿Desea actualizar el DV seleccionado en VoiceLink?'
+    , 'dv.alert7' => '¡Actualización realizada con éxito!'
+    , 'dv.alert8' => '¿Quieres imprimir las etiquetas de las ubicaciones seleccionadas?'
+    , 'dv.alert9' => "¿Cuál es la IP de la impresora?"
+    , 'dv.alert10' => "¡Las etiquetas fueron enviadas a la impresora con éxito!"
+    , 'dv.alert11' => '¿Quieres imprimir las etiquetas de los DVs generados hoy?'
 
     , 'connection.failed.parms' => "Error en la conexión a la base de datos. Revise los parámetros informados."
     , 'connection.ok.table' => "Parámetros grabados con éxito. La tabla ya existe y no se ha cambiado"

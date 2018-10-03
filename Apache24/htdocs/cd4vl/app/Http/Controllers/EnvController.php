@@ -67,7 +67,7 @@ class EnvController extends Controller {
          $x = new CreateDvlocationsTable();
          $x->up();
       } catch (\Exception $e) {
-         echo $e->getMessage();;
+         echo $e->getMessage();
          return json_encode(['error' => 1, 'desc' => __('lang.configurar.permission')]);
       }
 

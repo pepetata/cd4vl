@@ -7,14 +7,14 @@
 <section>
    <div class="flags">
       @if (app()->getLocale() !== 'pt')
-      <a href="locale/pt"><img alt="Portugues" src="images/pt.png"</a>
+      <a href="locale/pt"><img alt="Portugues" src="images/pt.png"></a>
       @endif
 
       @if (app()->getLocale() !== 'es')
-      <a href="locale/es"><img alt="Portugues" src="images/es.png"</a>
+      <a href="locale/es"><img alt="Espanhol" src="images/es.png"></a>
       @endif
       @if (app()->getLocale() !== 'en')
-      <a href="locale/en"><img alt="Portugues" src="images/en.png"</a>
+      <a href="locale/en"><img alt="Ingles" src="images/en.png"></a>
       @endif
    </div>
    <div >

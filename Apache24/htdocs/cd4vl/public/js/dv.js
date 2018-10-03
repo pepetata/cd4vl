@@ -248,7 +248,7 @@ function copyFromAisle() {
       alert(alertMsg[12]);
       return;
    }
-   if (!confirm( alertMsg[13] + $("#fromAisle").val() + ' ?'))
+   if (!confirm(alertMsg[13] + $("#fromAisle").val() + ' ?'))
       return;
    $("#copyingFromAisle").show();
 
@@ -707,6 +707,8 @@ function printDVSel() {
       printer = localStorage.printer;
 
    printer = prompt(alertMsg[9], printer);
+   if (!printer)
+      return;
    localStorage.printer = printer;
 
    $("#printing").show();
@@ -715,6 +717,40 @@ function printDVSel() {
       type: 'GET',
       url: 'printDVSel',
       data: {ids: ids, printer: printer},
+      success: function (resp) {
+         var data = JSON.parse(resp);
+         if (data.error !== 0)
+            alert(data.desc);
+         else
+            alert(alertMsg[10]);
+         $("#printing").hide();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         $("#printing").hide();
+         console.log(jqXHR, textStatus, errorThrown);
+      }
+   });
+}
+;
+
+function printDVToday() {
+   if (!confirm(alertMsg[11]))
+      return;
+
+   var printer;
+   if (localStorage.printer)
+      printer = localStorage.printer;
+
+   printer = prompt(alertMsg[9], printer);
+   if (!printer)
+      return;
+   localStorage.printer = printer;
+
+   $("#printing").show();
+   $.ajax({
+      type: 'GET',
+      url: 'printDVToday',
+      data: {printer: printer},
       success: function () {
 
          alert(alertMsg[10]);
@@ -727,7 +763,6 @@ function printDVSel() {
    });
 }
 ;
-
 
 function saveConf() {
 //   $("#configuring").empty();

@@ -101,9 +101,12 @@
   margin: auto;
   width: 50%; }
 
+.voco {
+  width: 120px;
+  height: auto; }
+
 .flags {
-    float: right;
-}
+  float: right; }
 
 @media only screen and (max-width: 600px) {
   #configurarDiv, #instructions {
