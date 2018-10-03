@@ -4,63 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d0956c7d1c0f67373ce20f782e757c4",
+    "content-hash": "240f4d2b067bc55cfd47d518fb0d54da",
     "packages": [
-        {
-            "name": "clue/socket-raw",
-            "version": "v1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/php-socket-raw.git",
-                "reference": "1f9060a973e2bc50389a89d9d2bdb64750fcc8f1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/php-socket-raw/zipball/1f9060a973e2bc50389a89d9d2bdb64750fcc8f1",
-                "reference": "1f9060a973e2bc50389a89d9d2bdb64750fcc8f1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-sockets": "*",
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Socket\\Raw\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@lueck.tv"
-                }
-            ],
-            "description": "Simple and lightweight OOP wrapper for PHP's low level sockets extension (ext-sockets)",
-            "homepage": "https://github.com/clue/php-socket-raw",
-            "keywords": [
-                "Socket",
-                "client",
-                "datagram",
-                "dgram",
-                "icmp",
-                "ipv6",
-                "server",
-                "stream",
-                "tcp",
-                "udg",
-                "udp",
-                "unix"
-            ],
-            "time": "2018-06-10T19:13:19+00:00"
-        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -420,82 +365,6 @@
                 "trusted proxy"
             ],
             "time": "2018-02-07T20:20:57+00:00"
-        },
-        {
-            "name": "graze/telnet-client",
-            "version": "v2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/graze/telnet-client.git",
-                "reference": "4c6b4eb7b0855990f0902ef6ebacea5bf500abff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/graze/telnet-client/zipball/4c6b4eb7b0855990f0902ef6ebacea5bf500abff",
-                "reference": "4c6b4eb7b0855990f0902ef6ebacea5bf500abff",
-                "shasum": ""
-            },
-            "require": {
-                "clue/socket-raw": "^1.3",
-                "php": ">5.5.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "4.*",
-                "symfony/var-dumper": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Graze\\TelnetClient\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dalibor Andzakovic",
-                    "email": "dali@swerve.co.nz"
-                },
-                {
-                    "name": "Marc Ennaji"
-                },
-                {
-                    "name": "Matthias Blaser",
-                    "email": "mb@adfinis.ch"
-                },
-                {
-                    "name": "Christian Hammers",
-                    "email": "chammers@netcologne.de"
-                },
-                {
-                    "name": "Bestnetwork",
-                    "email": "reparto.sviluppo@bestnetwork.it"
-                },
-                {
-                    "name": "Graze Developers",
-                    "email": "developers@graze.com",
-                    "homepage": "http://www.graze.com",
-                    "role": "Development Team"
-                },
-                {
-                    "name": "John Smith",
-                    "email": "john@graze.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Telnet client written in PHP",
-            "homepage": "https://github.com/graze/telnet-client",
-            "keywords": [
-                "client",
-                "graze",
-                "php",
-                "telnet",
-                "telnet-client"
-            ],
-            "time": "2018-07-30T22:34:35+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
