@@ -703,7 +703,10 @@ function printDVSel() {
       return;
 
    var printer;
-   if (localStorage.printer)
+
+   if (localStorage.getItem("printer") === null)
+      printer = "192.168.1.100:9100";
+   else
       printer = localStorage.printer;
 
    printer = prompt(alertMsg[9], printer);
@@ -738,7 +741,10 @@ function printDVToday() {
       return;
 
    var printer;
-   if (localStorage.printer)
+
+   if (localStorage.getItem("printer") === null)
+      printer = "192.168.1.100:9100";
+   else
       printer = localStorage.printer;
 
    printer = prompt(alertMsg[9], printer);
@@ -750,7 +756,7 @@ function printDVToday() {
    $.ajax({
       type: 'GET',
       url: 'printDVToday',
-      data: {printer: printer},
+      data: {printer: printer, siteId: $("#site").val()},
       success: function () {
 
          alert(alertMsg[10]);

@@ -1,5 +1,13 @@
 <?php
 
+// -----------------------------------------------------------------------
+// --                                                                   --
+// --                                                                   --
+// --                      Printing to shared printer                   --
+// --                                                                   --
+// --                                                                   --
+// -----------------------------------------------------------------------
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -203,23 +211,27 @@ class DVController extends Controller {
 
       function justifyR($s) {
          $b = substr("          ", strlen($s));
-         return $b.$s;
+         return $b . $s;
       }
-
-      $client = \Graze\TelnetClient\TelnetClient::factory();
 
       set_time_limit(0);
       $dir = str_replace("app\Http\Controllers", '', __DIR__) . "public" . DIRECTORY_SEPARATOR . "labels" . DIRECTORY_SEPARATOR;
       $file = $dir . "etiqueta.txt";
       $myfile = fopen($file, "r") or die("Unable to open file!");
-      $data = fread($myfile, filesize($file));
-//      fclose($myfile);
+      $dataorig = fread($myfile, filesize($file));
+      fclose($myfile);
 
       $ids = $request->input('ids');
-      $printer = $request->input('printer');
+      $dns = $request->input('printer');
+      try {
+         $fp = pfsockopen($dns);
+      } catch (\Exception $e) {
+         return json_encode(['error' => 1, 'desc' => __('lang.dv.error.printing') . ' -> ' . $e->getMessage()]);
+      }
       foreach ($ids as $id) {
          $location = DVLocations::where('id', $id)->get();
 
+         $data = $dataorig;
          $data = str_replace("{preAisle}", $location[0]['preAisle'], $data);
          $data = str_replace("{aisle}", $location[0]['aisle'], $data);
          $data = str_replace("{postAisle}", $location[0]['postAisle'], $data);
@@ -231,21 +243,15 @@ class DVController extends Controller {
          $data = str_replace("{dv4}", centralizeDV($location[0]['dv4']), $data);
          $data = str_replace("{dv5}", centralizeDV($location[0]['dv5']), $data);
 
-
          try {
             // print
-            $client->connect($printer);
-            var_dump($client);
-            $resp = $client->execute($data);
+            fputs($fp, $data);
          } catch (\Exception $e) {
             return json_encode(['error' => 1, 'desc' => __('lang.dv.error.printing') . ' -> ' . $e->getMessage()]);
          }
-
-
-
-//         var_dump($resp);
-         return json_encode(['error' => 0, 'desc' => '']);
       }
+      fclose($fp);
+      return json_encode(['error' => 0, 'desc' => '']);
    }
 
    public function printDVToday(Request $request) {
@@ -262,41 +268,52 @@ class DVController extends Controller {
          }
       }
 
-      $client = \Graze\TelnetClient\TelnetClient::factory();
+      function justifyR($s) {
+         $b = substr("          ", strlen($s));
+         return $b . $s;
+      }
 
-      set_time_limit(0);
       $dir = str_replace("app\Http\Controllers", '', __DIR__) . "public" . DIRECTORY_SEPARATOR . "labels" . DIRECTORY_SEPARATOR;
       $file = $dir . "etiqueta.txt";
       $myfile = fopen($file, "r") or die("Unable to open file!");
-      $data = fread($myfile, filesize($file));
-//      fclose($myfile);
+      $dataorig = fread($myfile, filesize($file));
+      fclose($myfile);
 
-      $ids = $request->input('ids');
-      $printer = $request->input('printer');
+      $dns = $request->input('printer');
+      $siteId = $request->input('siteId');
 
-//      DB::connection()->enableQueryLog();
-      $ids = DVLocations::whereDate('updated_at', Carbon::today())->get();
-//      var_dump(DB::getQueryLog());
+      DB::connection()->enableQueryLog();
+      $ids = DVLocations::whereDate('updated_at', Carbon::today())-> where('site', $siteId)->get();
+      var_dump(DB::getQueryLog());
 
+      try {
+         $fp = pfsockopen($dns);
+      } catch (\Exception $e) {
+         return json_encode(['error' => 1, 'desc' => __('lang.dv.error.printing') . ' -> ' . $e->getMessage()]);
+      }
       foreach ($ids as $location) {
 //         var_dump($location);
 
+         $data = $dataorig;
          $data = str_replace("{preAisle}", $location['preAisle'], $data);
          $data = str_replace("{aisle}", $location['aisle'], $data);
          $data = str_replace("{postAisle}", $location['postAisle'], $data);
          $data = str_replace("{locid}", $location['locid'], $data);
-         $data = str_replace("{slot}", $location['slot'], $data);
+         $data = str_replace("{slot}", justifyR($location['slot']), $data);
          $data = str_replace("{dv1}", centralizeDV($location['dv1']), $data);
          $data = str_replace("{dv2}", centralizeDV($location['dv2']), $data);
          $data = str_replace("{dv3}", centralizeDV($location['dv3']), $data);
          $data = str_replace("{dv4}", centralizeDV($location['dv4']), $data);
          $data = str_replace("{dv5}", centralizeDV($location['dv5']), $data);
-
-         $dsn = $printer;
-         $client->connect($dsn);
-//         $resp = $client->execute($data);
-//         var_dump($resp);
+         try {
+            // print
+            fputs($fp, $data);
+         } catch (\Exception $e) {
+            return json_encode(['error' => 1, 'desc' => __('lang.dv.error.printing') . ' -> ' . $e->getMessage()]);
+         }
       }
+      fclose($fp);
+      return json_encode(['error' => 0, 'desc' => '']);
    }
 
 }

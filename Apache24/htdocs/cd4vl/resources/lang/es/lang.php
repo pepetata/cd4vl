@@ -117,7 +117,7 @@ return [
     , 'dv.alert6' => '¿Desea actualizar el DV seleccionado en VoiceLink?'
     , 'dv.alert7' => '¡Actualización realizada con éxito!'
     , 'dv.alert8' => '¿Quieres imprimir las etiquetas de las ubicaciones seleccionadas?'
-    , 'dv.alert9' => "¿Cuál es la IP de la impresora?"
+    , 'dv.alert9' => "¿Cuál es la IP de la impresora (xxx.xxx.xxx.xxx:port)?"
     , 'dv.alert10' => "¡Las etiquetas fueron enviadas a la impresora con éxito!"
     , 'dv.alert11' => '¿Quieres imprimir las etiquetas de los DVs generados hoy?'
 

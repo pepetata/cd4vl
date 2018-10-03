@@ -117,7 +117,7 @@ return [
     , 'dv.alert6' => 'Do you want to update the selected CD in VoiceLink?'
     , 'dv.alert7' => 'Update performed successfully!!'
     , 'dv.alert8' => 'Do you want to print the labels for the selected locations?'
-    , 'dv.alert9' => "What is the IP of the printer?"
+    , 'dv.alert9' => "What is the IP of the printer (xxx.xxx.xxx.xxx:port)?"
     , 'dv.alert10' => "The labels were sent to the printer successfully !!!"
     , 'dv.alert11' => 'Do you want to print the labels of the CDs generated today?'
     
