@@ -8,6 +8,11 @@ This app is intended to simplify the product addresses and to create five check 
 
 It comes with its own Apache v2.4 for Windows. 
 
+*** SQL Server ONLY ***  
+--> you need to install Microsoft ODBC Driver for SQL Server:
+	- check your version
+	- https://www.microsoft.com/en-us/download/details.aspx?id=56567
+	
 To use it, run the start.bat file and open the browser with the url localhost:9080 
 
  
