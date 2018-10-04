@@ -4,7 +4,12 @@ Check Digit for Honeywell Vocollect VoiceLink
 
   
 
-This app is intended to simplify the product addresses and to create five check digits for each location. 
+This app is intended to simplify the product addresses and to create five check digits for each location:
+
+	- It copies the locations from VL;
+	- Allow to edit those locations to have only corridor and slot information (can have other but it is not recommended);
+	- Generate check digits;
+	- Print labels for the locations.
 
 It comes with its own Apache v2.4 for Windows. 
 
