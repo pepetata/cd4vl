@@ -49,7 +49,7 @@ class EnvController extends Controller {
             //
          }
       } catch (\Exception $e) {
-         return json_encode(['error' => 1, 'desc' => __('lang.connection.failed.parms')]);
+         return json_encode(['error' => 1, 'desc' => __('lang.connection.failed.parms'). ' -> ' . $e->getMessage()]);
       }
 
 
@@ -59,7 +59,7 @@ class EnvController extends Controller {
             return json_encode(['error' => 1, 'desc' => __('lang.configurar.saved')]);
          }
       } catch (\Exception $e) {
-         return json_encode(['error' => 1,  'desc' => __('lang.connection.failed.parms')]);
+         return json_encode(['error' => 1,  'desc' => __('lang.connection.failed.parms'). ' -> ' . $e->getMessage()]);
       }
             
       // create table
@@ -68,7 +68,7 @@ class EnvController extends Controller {
          $x->up();
       } catch (\Exception $e) {
          echo $e->getMessage();
-         return json_encode(['error' => 1, 'desc' => __('lang.configurar.permission')]);
+         return json_encode(['error' => 1, 'desc' => __('lang.configurar.permission'). ' -> ' . $e->getMessage()]);
       }
 
 
