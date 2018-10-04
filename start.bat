@@ -12,5 +12,8 @@ REM -                                                              -
 REM ----------------------------------------------------------------
 REM 
 
+REM addin php to the PATH
+
+SET PATH=%PATH%;.\Apache24\php
 explorer "http://localhost:9080"
 Apache24\bin\httpd
