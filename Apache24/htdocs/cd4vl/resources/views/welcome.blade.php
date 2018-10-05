@@ -74,91 +74,125 @@
    </header>
    <div class="accordion" id="accordionExample">
       <div class="card">
-         <div class="card-header" id="headingOne">
+         <div class="card-header" id="heading1">
             <h5 class="mb-0">
-               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  @lang('lang.welcome.instruction.setup')
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                  @lang('lang.welcome.instruction.cd4vl')
                </button>
             </h5>
          </div>
 
-         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
             <div class="card-body">
-               <ul>
-                  <li>@lang('lang.welcome.instruction.setup.line1')</li>
-                  <li>@lang('lang.welcome.instruction.setup.line2')</li>
-                  <li>@lang('lang.welcome.instruction.setup.line3')</li>
-                  <li>@lang('lang.welcome.instruction.setup.line4')</li>
-                  <li>@lang('lang.welcome.instruction.setup.line5')</li>
-                  <li>@lang('lang.welcome.instruction.setup.line6')</li>
-               </ul>
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.cd4vl.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.cd4vl.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
             </div>
          </div>
       </div>
       <div class="card">
-         <div class="card-header" id="headingTwo">
+         <div class="card-header" id="heading2">
             <h5 class="mb-0">
-               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                  @lang('lang.welcome.instruction.instalation')
+               </button>
+            </h5>
+         </div>
+
+         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+            <div class="card-body">
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.instalation.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.instalation.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
+            </div>
+         </div>
+      </div>
+      <div class="card">
+         <div class="card-header" id="heading3">
+            <h5 class="mb-0">
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                  @lang('lang.welcome.instruction.bplocation')
+               </button>
+            </h5>
+         </div>
+
+         <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+            <div class="card-body">
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.bplocation.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.bplocation.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
+            </div>
+         </div>
+      </div>
+      <div class="card">
+         <div class="card-header" id="heading4">
+            <h5 class="mb-0">
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                  @lang('lang.welcome.instruction.bpcd')
+               </button>
+            </h5>
+         </div>
+
+         <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+            <div class="card-body">
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.bpcd.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.bpcd.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
+            </div>
+         </div>
+      </div>
+      <div class="card">
+         <div class="card-header" id="heading5">
+            <h5 class="mb-0">
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                  @lang('lang.welcome.instruction.setup')
+               </button>
+            </h5>
+         </div>
+         <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+            <div class="card-body">
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.setup.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.setup.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
+            </div>
+         </div>
+      </div>
+      <div class="card">
+         <div class="card-header" id="heading6">
+            <h5 class="mb-0">
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
                   @lang('lang.welcome.instruction.location')
                </button>
             </h5>
          </div>
-         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+         <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
             <div class="card-body">
-               <ul>
-                  <li>@lang('lang.welcome.instruction.location.line1')</li>
-                  <li>@lang('lang.welcome.instruction.location.line2')</li>
-                  <li>@lang('lang.welcome.instruction.location.line3')</li>
-                  <li>@lang('lang.welcome.instruction.location.line4')</li>
-                  <li>@lang('lang.welcome.instruction.location.line5')</li>
-                  <li><strong>@lang('lang.welcome.instruction.location.line6')</strong></li>
-                  @if (app()->getLocale() === 'pt')
-                  <img alt='endreços' src='images/addresses.png'>
-                  @endif
-                  @if (app()->getLocale() === 'en')
-                  <img alt='endreços' src='images/locations.png'>
-                  @endif
-                  @if (app()->getLocale() === 'es')
-                  <img alt='endreços' src='images/ubicaciones.png'>
-                  @endif
-                  <li><strong>@lang('lang.welcome.instruction.location.line7')</strong></li>
-               </ul>
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.location.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.location.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
             </div>
          </div>
       </div>
       <div class="card">
-         <div class="card-header" id="headingThree">
+         <div class="card-header" id="heading7">
             <h5 class="mb-0">
-               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
                   @lang('lang.welcome.instruction.cd')
                </button>
             </h5>
          </div>
-         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+         <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
             <div class="card-body">
-               <ul>
-                  <li>@lang('lang.welcome.instruction.cd.line1')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line2')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line3')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line4')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line5')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line6')</li>
-                  <ul>
-                     <li>@lang('lang.welcome.instruction.cd.line7')</li>
-                     <li>@lang('lang.welcome.instruction.cd.line8')</li>
-                     <li>@lang('lang.welcome.instruction.cd.line9')</li>
-                  </ul>
-                  <li class='text-danger'><strong>@lang('lang.welcome.instruction.cd.line10')</strong></li>
-                  <li>@lang('lang.welcome.instruction.cd.line11')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line12')</li>
-                  <ul>
-                     <li>@lang('lang.welcome.instruction.cd.line13')</li>
-                     <li>@lang('lang.welcome.instruction.cd.line14')</li>
-                  </ul>
-                  <li class='text-danger'><strong>@lang('lang.welcome.instruction.cd.line15')</strong></li>
-                  <li>@lang('lang.welcome.instruction.cd.line16')</li>
-                  <li>@lang('lang.welcome.instruction.cd.line17')</li>
-               </ul>
+               @for ($i = 1; $i <=  __('lang.welcome.instruction.cd.nlines'); $i++)
+                  <?php $line = 'lang.welcome.instruction.cd.line' . $i ?>
+                  {!! __($line) !!}
+               @endfor
             </div>
          </div>
       </div>
