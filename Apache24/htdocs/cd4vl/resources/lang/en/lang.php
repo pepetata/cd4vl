@@ -36,7 +36,7 @@ return [
     , 'welcome.instruction.cd.line13' => "Select the aisle, select the locations and then click [Print Selected CDs] or;"
     , 'welcome.instruction.cd.line14' => "Click [Print CDs Generated Today];"
     , 'welcome.instruction.cd.line15' => "Rotate CDs frequently to avoid memorization."
-    , 'welcome.instruction.cd.line16' => "To do this, decide which will be used on the day and click the 'Update CDs in VoiceLink' button."
+    , 'welcome.instruction.cd.line16' => "To do this, decide which CD will be used on the day and click the 'Update CDs in VoiceLink' button."
     , 'welcome.instruction.cd.line17' => "Do not forget to tell the operation which is the CD of the day."
     
     , 'acessandodb.title' => "VoiceLink Addon System"
