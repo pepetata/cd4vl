@@ -68,7 +68,7 @@ yellow	|red	|blue	|green
 --------|-------|-------|--------
 65	|37	|94	|26
 
-Another example of etiquette to avoid memorization is to use the check digits inside a figure (circle, square, triangle, etc).
+Another example of label to avoid memorization is to use the check digits inside a figure (circle, square, triangle, etc).
 
 Even with this process, you have to __change the check digits from time to time in the most visited positions__.
 
