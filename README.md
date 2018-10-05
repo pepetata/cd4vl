@@ -25,7 +25,7 @@ NOTE:
 - this app hasn't been tested in production yet. Be sure to have a VoiceLink database backup before testing it.
 - the label layout is not done. You have to do it: change the file cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt.
 - please develop your own label and make it available for others: etiquetaXXmmLLL.txt --> XX - label width, LLL - Printer language (ZPL).
-- the label is using XPL. 
+- the label is using ZPL. 
 - tested in Windowns 8.
 
  
