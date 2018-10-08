@@ -4,20 +4,21 @@ return [
     'welcome.title' => "VoiceLink Addon System"
     , 'welcome.subtitle' => "Location & Check Digits"
     , 'welcome.instruction.title' => "Instructions"
+
     , 'welcome.instruction.cd4vl' => "CD4VL"
     , 'welcome.instruction.cd4vl.nlines' => "15"
     , 'welcome.instruction.cd4vl.line1' => "<p><strong>Check Digit for Honeywell Vocollect VoiceLink.</strong></p>"
-    , 'welcome.instruction.cd4vl.line2' => "<p>This app is intended to simplify the product addresses and to create five check digits for each location:</p>"
+    , 'welcome.instruction.cd4vl.line2' => "<p>This app is intended to simplify the product locations and to create five check digits for each location:</p>"
     , 'welcome.instruction.cd4vl.line3' => "<li>It copies the locations from VL;</li>"
     , 'welcome.instruction.cd4vl.line4' => "<li>Allow to edit those locations to have only aisle and slot information (can have other but it is not recommended);</li>"
     , 'welcome.instruction.cd4vl.line5' => "<li>Generate check digits;</li>"
     , 'welcome.instruction.cd4vl.line6' => "<li>Print labels for the locations.</li>"
     , 'welcome.instruction.cd4vl.line7' => "<p>It comes with its own Apache v2.4 for Windows.</p>"
     , 'welcome.instruction.cd4vl.line8' => "<p><strong><code>*** SQL Server ONLY ***</code></strong></p>"
-    , 'welcome.instruction.cd4vl.line9' => "<p>To use it, run the start.bat file and open the browser with the url localhost:9080</p>"
+    , 'welcome.instruction.cd4vl.line9' => "<p>To use it, run the start.bat file and open the browser with the url http://localhost:9080</p>"
     , 'welcome.instruction.cd4vl.line10' => "<p>NOTE:</p>"
     , 'welcome.instruction.cd4vl.line11' => "<li>this app hasn't been tested in production yet. Be sure to have a VoiceLink database backup before testing it.</li>"
-    , 'welcome.instruction.cd4vl.line12' => "<li>the label layout is not done. You have to do it: change the file <code>cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt</code>.</li>"
+    , 'welcome.instruction.cd4vl.line12' => "<li>the label layout is not done. Change the file <code>cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt</code>.</li>"
     , 'welcome.instruction.cd4vl.line13' => "<li>the label is using ZPL.</li>"
     , 'welcome.instruction.cd4vl.line14' => "<li>please develop your own label and make it available for others: etiquetaXXmmLLL.txt --> XX - label width, LLL - Printer language (ZPL).</li>"
     , 'welcome.instruction.cd4vl.line15' => "<li>tested in Windowns 8.</li>"
@@ -28,7 +29,7 @@ return [
     , 'welcome.instruction.instalation.line2' => "<li>Download the aplication (click on <strong><code>[Clone or Download]</code></strong>.</li>"
     , 'welcome.instruction.instalation.line3' => "<li>Copy the content of the zip file on you machine.</li>"
     , 'welcome.instruction.instalation.line4' => "<li>Run the <code>start.bat</code> file that is on the root folder of the application.</li>"
-    , 'welcome.instruction.instalation.line5' => '<li>Access the application at <a href="http:\\localhost:9080" target="_blank">http:\\localhost:9080</a></li>'
+    , 'welcome.instruction.instalation.line5' => '<li>Access the application at <a href="http://localhost:9080" target="_blank">http://localhost:9080</a></li>'
 
     , 'welcome.instruction.bplocation' => "Best Practices - Locations"
     , 'welcome.instruction.bplocation.nlines' => "5"
@@ -38,7 +39,7 @@ return [
     , 'welcome.instruction.bplocation.line4' => '<p>To identify the level you can use alphabetic characters like A, B, C, etc:</p>'
     , 'welcome.instruction.bplocation.line5' => '<p>Avoid using pre-aisle and post-aisle information when possible.</p>'
 
-    , 'welcome.instruction.bpcd' => "Best Practices - Check Digits"
+    , 'welcome.instruction.bpcd' => "Best Practices - Check Digits - CD"
     , 'welcome.instruction.bpcd.nlines' => "21"
     , 'welcome.instruction.bpcd.line1' => '<p>The check digit is an important instrument of the voice solution as it allows the increase of accuracy of the operations performed with the voice system. It is therefore essential to take due care of this instrument.</p>'
     , 'welcome.instruction.bpcd.line2' => '<p></p>'
@@ -51,7 +52,7 @@ return [
     , 'welcome.instruction.bpcd.line9' => '<li style="color:blue"><strong>Never use the product code or EAN (or part of it).</strong></li>'
     , 'welcome.instruction.bpcd.line10' => '<li><strong>Do not use special or alphabetic characters.</strong></li>'
     , 'welcome.instruction.bpcd.line11' => '<p></p>'
-    , 'welcome.instruction.bpcd.line12' => '<p>A feature of check digits is that operators memorize over time because they visit the positions thousands of times. And this is not good as it can affect the accuracy of the picking since the operator can say the digit before reaching the slot and get the product from the wrong slot.</p>'
+    , 'welcome.instruction.bpcd.line12' => '<p>A feature of check digit is that operators memorize over time because they visit the positions thousands of times. And this is not good as it can affect the accuracy of the picking since the operator can say the digit before reaching the slot and get the product from the wrong slot.</p>'
     , 'welcome.instruction.bpcd.line13' => '<p></p>'
     , 'welcome.instruction.bpcd.line14' => '<p>To <strong>avoid memorization</strong>, it is recommended to use three or more labels (side by side) with different colors. Each tag contains a different check digit and should be used alternately over time. For example, in the first week the yellow label is used, the second week the red label, etc .:</p>'
     , 'welcome.instruction.bpcd.line15' => "<div class='text-center'><img  style='width:60%' alt='Check digit style' src='images/dv-2.png'></div>"
@@ -60,7 +61,7 @@ return [
     , 'welcome.instruction.bpcd.line18' => '<p></p>'
     , 'welcome.instruction.bpcd.line19' => '<p>Even with this process, you have to <strong>change the check digits from time to time in the most visited positions</strong>.</p>'
     , 'welcome.instruction.bpcd.line20' => '<p></p>'
-    , 'welcome.instruction.bpcd.line21' => '<p>The text font for the check digit should be small enough to force the operators to be in front of the slot to be able to read them. If the text font is too large, the operator will be able to read from a far away, say it before getting to the slot and pick the product from the wrong slot.</p>'
+    , 'welcome.instruction.bpcd.line21' => '<p>The text font for the check digit should be small enough to force the operators to be in front of the slot to be able to read them. If the text font is too large, the operator will be able to read from a far away, say it before arriving at the slot and pick the product from the wrong slot.</p>'
 
     , 'welcome.instruction.setup' => "Setup"
     , 'welcome.instruction.setup.nlines' => "6"
@@ -94,7 +95,7 @@ return [
     , 'welcome.instruction.cd.line8' => "<li>next to it, if it has level, ie, the CD on slot 5C will not be equal to slot 5B, 5D, 4C or 6C;</li>"
     , 'welcome.instruction.cd.line9' => "<li>in another aisle with equal slot number, ie, the CD of slot 29 will not be the same as another slot 29 of other aisle.</li></ul>"
     , 'welcome.instruction.cd.line10' => "<p></p><p style='color:red'><strong>It is highly recommended to change the CD on the most visited locations.</strong></p>"
-    , 'welcome.instruction.cd.line11' => "<p>To do this, enter the locations list, and click <strong><code>[Search locations from the list]</code></strong>;</p><ul><li>Select all of the locations;</li><li>Click the <strong><code>[Generate DVs]</code></strong> button;</li></ul>"
+    , 'welcome.instruction.cd.line11' => "<p>To do this:</p><ul><li>enter the locations list;<li>click <strong><code>[Search locations from the list]</code></strong>;<li>Select all of the locations;</li><li>Click the <strong><code>[Generate DVs]</code></strong> button;</li></ul>"
     , 'welcome.instruction.cd.line12' => "<p></p><p>To print the labels:</p>"
     , 'welcome.instruction.cd.line13' => "<ul><li>Select the aisle, select the locations and then click <strong><code>[Print Selected CDs]</code></strong> or;</li>"
     , 'welcome.instruction.cd.line14' => "<li>Click <strong><code>[Print CDs Generated Today]</code></strong>;</li></ul>"
