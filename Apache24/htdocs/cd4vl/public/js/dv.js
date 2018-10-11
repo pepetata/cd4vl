@@ -1,5 +1,3 @@
-"use strict";
-
 $(function () {
    $('[data-toggle="tooltip"]').tooltip()
 })
@@ -436,7 +434,15 @@ function emptyDynamicLocs() {
 ;
 
 function changedSite(e) {
-//   console.log(e);
+   console.log(e.target.value);
+   if (! e.target.value) {
+         hide("#filterInput");
+         hide("#updateButton");
+         hide("#printDiv");
+         hide("#listButton");
+         hide("#copyButtonDiv");
+         return;
+   }
    var siteId = e.target.value;
    hide("#filterInput");
    $.get('getAisles?siteId=' + siteId, function (data) {
@@ -451,6 +457,7 @@ function changedSite(e) {
       if (data.length > 0) {
          show("#filterInput");
          show("#updateButton");
+         show("#printDiv");
          show("#listButton");
          show("#copyButtonDiv");
       }
@@ -772,6 +779,53 @@ function updateDVVLSel(dv) {
       type: 'GET',
       url: 'updateVL',
       data: {dv: dv, siteId: $("#site").val()},
+      success: function (data) {
+         $("#updating").hide();
+         alert(alertMsg[7])
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         $("#generating").hide();
+         console.log(jqXHR, textStatus, errorThrown);
+         $("#updating").hide();
+      }
+   });
+
+}
+;
+
+function exportCDFix(dv) {
+   if (!confirm(alertMsg[12]))
+      return;
+
+   $("#updating").show();
+
+   $.ajax({
+      type: 'GET',
+      url: 'exportCDFix',
+      data: {dv: dv, siteId: $("#site").val()},
+      success: function (data) {
+         $("#updating").hide();
+         alert(alertMsg[7])
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         $("#generating").hide();
+         console.log(jqXHR, textStatus, errorThrown);
+         $("#updating").hide();
+      }
+   });
+
+}
+;
+
+function exportCDTable(dv) {
+   if (!confirm(alertMsg[13]))
+      return;
+
+   $("#updating").show();
+   $.ajax({
+      type: 'GET',
+      url: 'exportCDTable',
+      data: {dv: dv, siteId: $("#site").val(), siteName: $("#site>option:selected").html()},
       success: function (data) {
          $("#updating").hide();
          alert(alertMsg[7])

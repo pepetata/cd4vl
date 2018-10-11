@@ -158,16 +158,18 @@ return [
     , 'endereco.alert14' => 'This process will only import new locations from the selected flat file.\n\nConfirm that you want to import locations?'
     , 'endereco.alert15' => 'First select a file !!'
     , 'endereco.alert16' => 'Import finished !!! Imported/read locations = '
-    , 'endereco.alert17' => 'This process will only import new locations from the selected .csv file.\n\nThe .csv file must have the following fields in this order: scannedVerification, preAisle, aisle, postAisle, slot.\n\nConfirm that you want to import locations?'
+    , 'endereco.alert17' => 'This process will only import new locations from the selected .csv file.\n\nThe .csv file must have the following fields in this order: scannedVerification, preAisle, aisle, postAisle, slot, spokenVerification.\n\nConfirm that you want to import locations?'
     , 'endereco.alert18' => ''
 
     , 'dv.title' => "VoiceLink Addon System - Check Digit"
     , 'dv.selectcd' => "Select DC"
     , 'dv.dc' => "Distribution Center: "
-    , 'dv.updateVL' => "Update CDs in VoiceLink"
+    , 'dv.updateVL' => "Export CDs to VoiceLink"
+    , 'dv.exportFix' => "Export CDs to Flat File"
+    , 'dv.exportTable' => "Export CDs to Import Table"
     , 'dv.printselected' => "Print selected CDs"
     , 'dv.printtoday' => "Print CDs Generated Today"
-    , 'dv.updating' => "Wait!!Updating CDs in VoiceLink."
+    , 'dv.updating' => "Wait!! Exporting Cds ..."
     , 'dv.printing' => "Wait!! Printing labels."
     , 'dv.searchlist' => "Search locations from the list"
     , 'dv.listing' => "Wait!! Searching locations from the list"
@@ -186,15 +188,17 @@ return [
     , 'dv.alert3' => "Number of digits for the CD?"
     , 'dv.alert4' => "Enter a number between 2 and 5 !!!"
     , 'dv.alert5' => "Fill in the field with the locations you want to display !!!"
-    , 'dv.alert6' => 'Do you want to update the selected CD in VoiceLink?'
-    , 'dv.alert7' => 'Update performed successfully!!'
+    , 'dv.alert6' => 'This process will access a VoiceLink table directly by this application and this is not recommended by Honeywell Vocollect. This access from outside can provoque a lock on the table and interfere on VoiceLink. Use this process on your own risk and only if nobody is connected to VL via browser or via a talkman device.\n\n Do you want to update the selected CD in VoiceLink?'
+    , 'dv.alert7' => 'Export performed successfully!!'
     , 'dv.alert8' => 'Do you want to print the labels for the selected locations?'
     , 'dv.alert9' => "What is the IP of the printer (xxx.xxx.xxx.xxx:port)?"
     , 'dv.alert10' => "The labels were sent to the printer successfully !!!"
     , 'dv.alert11' => 'Do you want to print the labels of the CDs generated today?'
-    
+    , 'dv.alert12' => '*** Only use this if your VoiceLink is setup to import from flat file ***\n\nThis process will generate a coreloc*.dat flat file (in the root folder of this application) to be used to import in VoiceLink.\n\nYou will have to move this file to the correct VoiceLink server folder manually. Usually it is:\n\nC:\\\Program Files\\\Vocollect\\\Import\\\{site name} --- where (site name) is the name of the Distribution Center\n\nBut it could have being changed during VL installation\n\nDo you want to continue?'
+    , 'dv.alert13' => '*** Only use this if your VoiceLink is setup to import from table ***\n\nThis process will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically\n\nDo you want to continue?'
 
     , 'connection.failed.parms' => "Connection to database failed. Review the reported parameters."
     , 'connection.ok.table' => "Parâmetros gravados com sucesso. Tabela já existe!!!"
+
     , 'back' => "Back"
 ];

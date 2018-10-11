@@ -4,7 +4,6 @@ return [
       'welcome.title' => "Sistema Auxiliar de VoiceLink"
     , 'welcome.subtitle' => "Ubicación y Dígito de verificación"
     , 'welcome.instruction.title' => "Instruciones"
-
     
     , 'welcome.instruction.cd4vl' => "CD4VL"
     , 'welcome.instruction.cd4vl.nlines' => "15"
@@ -151,23 +150,23 @@ return [
     , 'endereco.alert6' => '¿Quieres numerar todas las ubicaciones de abajo?'
     , 'endereco.alert7' => '¿Número inicial?'
     , 'endereco.alert8' => '¡Seleccione el centro de distribución antes!'
-    , 'endereco.alert9' => '¿Confirmar que desea copiar las ubicaciones de VL?'
+    , 'endereco.alert9' => 'Este proceso de importación accederá directamente a la tabla de VoiceLink y Honeywell Vocollect no lo recomienda. Este acceso desde el fuera puede provocar un bloqueo en las tablas e interferir en VoiceLink. Utilice este proceso bajo su propio riesgo y solo si nadie está conectado a VL a través del navegador o mediante un dispositivo de talkman.\n\n¿Confirma que desea importar ubicaciones de VL?'
     , 'endereco.alert10' => '¡Nada encontrado para copiar!'
     , 'endereco.alert11' => '¡Copia terminada! Ubicaciones copiadas ='
     , 'endereco.alert12' => "¡Seleccione el pasillo de origen!"
     , 'endereco.alert13' => '¿Confirma que desea copiar las ubicaciones desde el pasillo'
-    , 'endereco.alert14' => '¿Confirma que desea copiar las ubicaciones del archivo plano selecionado?'
     , 'endereco.alert14' => 'Este proceso sólo importará nuevas ubicaciones del archivo seleccionado. \n\n¿Confirma que desea importar ubicaciones?'
     , 'endereco.alert15' => 'Seleccione el arquivo !!'
     , 'endereco.alert16' => '¡Importación finalizada !!! Ubicaciones importadas/leídas = '
     , 'endereco.alert17' => 'Este proceso sólo importará nuevas ubicaciones del archivo seleccionado.\n\nEl archivo .csv debe tener los siguientes campos en este orden: scannedVerification, preAisle, aisle, postAisle, slot.\n\n¿Confirma que desea importar ubicaciones?'
     , 'endereco.alert18' => ''
 
-
     , 'dv.title' => "Sistema Auxiliar de VoiceLink - Dígitos de Verificación"
     , 'dv.selectcd' => "Seleccione el CD"
     , 'dv.dc' => "Centro de distribución: "
     , 'dv.updateVL' => "Actualizar DV en VoiceLink"
+    , 'dv.exportFix' => "Exportar DVs para Archivo Plano"
+    , 'dv.exportTable' => "Exportar DVs para Tabla Temporaria"
     , 'dv.printselected' => "Imprimir DVs seleccionados"
     , 'dv.printtoday' => "Imprimir DVs creados hoy"
     , 'dv.updating' => "Espera !! Actualizando los DVs en VoiceLink."
@@ -195,6 +194,8 @@ return [
     , 'dv.alert9' => "¿Cuál es la IP de la impresora (xxx.xxx.xxx.xxx:port)?"
     , 'dv.alert10' => "¡Las etiquetas fueron enviadas a la impresora con éxito!"
     , 'dv.alert11' => '¿Quieres imprimir las etiquetas de los DVs generados hoy?'
+    , 'dv.alert12' => '*** Solo use este proceso si su VoiceLink está configurado para importar desde un archivo plano ***\n\nEste proceso generará un archivo plano coreloc*.dat (en la carpeta raíz de esta aplicación) que se usará para importar en VoiceLink.\n\nTendrá que mover este archivo a la carpeta correcta del servidor VoiceLink manualmente. Por lo general, es:\n\nC:\\\Archivos de programa\\\Vocollect\\\Import\\\{nombre del sitio} --- donde (nombre del sitio) es el nombre del Centro de distribución\n\nPero quizá lo han cambiado durante la instalación de VL\n\n¿Desea continuar?'
+    , 'dv.alert13' => '*** Only use this if your VoiceLink is setup to import from table ***\n\nThis process will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically\n\nDo you want to continue?'
 
     , 'connection.failed.parms' => "Error en la conexión a la base de datos. Revise los parámetros informados."
     , 'connection.ok.table' => "Parámetros grabados con éxito. La tabla ya existe y no se ha cambiado"

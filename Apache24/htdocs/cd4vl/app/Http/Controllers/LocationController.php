@@ -15,10 +15,15 @@ class LocationController extends Controller {
       $siteId = $request->input('siteId');
       $newLocs = DB::select('select * from core_locations l, core_location_tag t where tag_id = ' . $siteId . ' AND tagged_id = locationid AND scannedVerification not in (select locid from dv_locations)');
       foreach ($newLocs as $newLoc) {
-         DB::table('dv_locations')->insert(
-                 ['site' => $siteId, 'locid' => $newLoc->scannedVerification, 'aisle' => $newLoc->aisle, 'created_at' => date('Y-m-d H:i:s')]
-         );
-         //                  ob_flush();
+         $newLocation = new DVLocations;
+         $newLocation->site = $siteId;
+         $newLocation->locid = $newLoc->scannedVerification;
+         $newLocation->preAisle = $newLoc->preAisle;
+         $newLocation->aisle = $newLoc->aisle;
+         $newLocation->postAisle = $newLoc->postAisle;
+         $newLocation->slot = $newLoc->slot;
+         $newLocation->spokenVerification = $newLoc->spokenVerification;
+         $newLocation->save();
       }
       return sizeof($newLocs);
    }
@@ -74,40 +79,6 @@ class LocationController extends Controller {
       return;
    }
 
-   public function importCSV(Request $request) {
-      set_time_limit(0);
-
-//      $siteId = $request->input('siteId');
-      $formData = $request->input();
-      $path = $request->file('csv_file')->getRealPath();
-//      echo $siteId;
-//      var_dump($formData);
-      var_dump($path);
-
-//      if ($request->hasFile('sample_file')) {
-//         $path = $request->file('sample_file')->getRealPath();
-//         $data = \Excel::load($path)->get();
-//         if ($data->count()) {
-//            foreach ($data as $key => $value) {
-//               $arr[] = ['name' => $value->name, 'details' => $value->details];
-//            }
-//            if (!empty($arr)) {
-//               \DB::table('products')->insert($arr);
-//               dd('Insert Record successfully.');
-//            }
-//         }
-//      }
-//      dd('Request data does not have any files to import.');
-//      $newLocs = DB::select('select * from core_locations l, core_location_tag t where tag_id = '.$siteId.' AND tagged_id = locationid AND scannedVerification not in (select locid from dv_locations)');
-//      foreach ($newLocs as $newLoc) {
-//         DB::table('dv_locations')->insert(
-//                 ['site' => $siteId, 'locid' => $newLoc->scannedVerification, 'aisle' => $newLoc->aisle, 'created_at' => date('Y-m-d H:i:s')]
-//         );
-//         //                  ob_flush();
-//      }
-      return 'abc';
-   }
-
    public function copyFromVLFix(Request $request) {
       set_time_limit(0);
       $file = "flatfile";
@@ -123,9 +94,10 @@ class LocationController extends Controller {
 //            echo $line . "\r\n";
             $preaisle = trim(substr($line, 0, 50));
             $aisle = trim(substr($line, 50, 50));
-            $postaisle = trim(substr($line, 255, 50));
             $slot = trim(substr($line, 100, 50));
             $locid = trim(substr($line, 150, 50));
+            $spokenVerification = trim(substr($line, 200, 50));
+            $postaisle = trim(substr($line, 255, 50));
 //            echo "$locid   $preaisle   $aisle   $postaisle    $slot" . "\r\n";
             $loc = DVLocations::where([['site', $siteId], ['locid', $locid]])->exists();
             $nread++;
@@ -137,33 +109,13 @@ class LocationController extends Controller {
                $newloc->aisle = $aisle;
                $newloc->postAisle = $postaisle;
                $newloc->slot = $slot;
+               $newloc->spokenVerification = $spokenVerification;
                $newloc->save();
                $nnew++;
             }
-//            foreach ($newLocs as $newLoc) {
-//               DB::table('dv_locations')->insert(
-//                       ['site' => $siteId, 'locid' => $locid, 'aisle' => $newLoc->aisle, 'created_at' => date('Y-m-d H:i:s')]
-//               );
-//               //                  ob_flush();
-//            }
          }
-//         if ($data->count()) {
-//            foreach ($data as $key => $value) {
-//               $arr[] = ['name' => $value->name, 'details' => $value->details];
-//            }
-//            if (!empty($arr)) {
-//               \DB::table('products')->insert($arr);
-//               dd('Insert Record successfully.');
-//            }
-//         }
       } else
          return json_encode('Request data does not have any files to import.');
-//      $newLocs = DB::select('select * from core_locations l, core_location_tag t where tag_id = '.$siteId.' AND tagged_id = locationid AND scannedVerification not in (select locid from dv_locations)');
-//      foreach ($newLocs as $newLoc) {
-//         DB::table('dv_locations')->insert(
-//                 ['site' => $siteId, 'locid' => $newLoc->scannedVerification, 'aisle' => $newLoc->aisle, 'created_at' => date('Y-m-d H:i:s')]
-//         );
-//      }
       return json_encode(['read' => $nread, 'new' => $nnew]);
    }
 
@@ -187,6 +139,7 @@ class LocationController extends Controller {
             $aisle = trim($line[2]);
             $postaisle = trim($line[3]);
             $slot = trim($line[4]);
+            $spokenVerification = trim($line[5]);
 //            echo "$locid   $preaisle   $aisle   $postaisle    $slot" . "\r\n";
             $loc = DVLocations::where([['site', $siteId], ['locid', $locid]])->exists();
             $nread++;
@@ -198,6 +151,8 @@ class LocationController extends Controller {
                $newloc->aisle = $aisle;
                $newloc->postAisle = $postaisle;
                $newloc->slot = $slot;
+               $newloc->spokenVerification = $spokenVerification;
+
                $newloc->save();
                $nnew++;
             }

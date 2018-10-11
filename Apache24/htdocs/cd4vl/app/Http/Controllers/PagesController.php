@@ -20,9 +20,12 @@ class PagesController extends Controller {
 
    public function endereco(Request $request) {
       try {
-         $sites = \App\Voc_Sites::orderBy('name')->pluck('name', 'siteId');
+//         $sites = \App\Voc_Sites::orderBy('name')->pluck('name', 'siteId');
+         $allsites = DB::select("SELECT * FROM voc_site with (nolock)");
+         $sites = collect($allsites)->pluck('name', 'siteId');
       } catch (\Exception $e) {
-         return view('errordb');
+         echo $e->getMessage();
+//         return view('errordb');
       }
 //      return View::make('home', compact('users'));
       return view('endereco', compact('sites'));
@@ -30,7 +33,9 @@ class PagesController extends Controller {
 
    public function dv(Request $request) {
       try {
-         $sites = \App\Voc_Sites::orderBy('name')->pluck('name', 'siteId');
+//         $sites = \App\Voc_Sites::orderBy('name')->pluck('name', 'siteId');
+         $allsites = DB::select("SELECT * FROM voc_site with (nolock)");
+         $sites = collect($allsites)->pluck('name', 'siteId');
       } catch (\Exception $e) {
          return view('errordb');
       }

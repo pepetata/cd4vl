@@ -187,6 +187,60 @@ class DVController extends Controller {
       }
    }
 
+   public function exportCDFix(Request $request) {
+      set_time_limit(0);
+//      DB::connection()->enableQueryLog();
+
+      $siteId = $request->input('siteId');
+      $dv = $request->input('dv');
+      $locations = DVLocations::where('site', $siteId)->get();
+
+      $date = new \DateTime("now", new \DateTimeZone('America/Araguaina')); //first argument "must" be a string
+//      $date = new \DateTime();
+      $filename = "..\..\..\..\coreloc" . $date->format('Y_m_d_H_i_s') . '.dat';
+      $file = fopen($filename, "w");
+      foreach ($locations as $location) {
+         $line = substr(($location['preAisle'] !== "NULL" ? $location['preAisle'] : " ") . str_repeat(" ", 50), 0, 50);
+         $line .= substr(($location['aisle'] !== "NULL" ? $location['aisle'] : " ") . str_repeat(" ", 50), 0, 50);
+         $line .= substr(($location['slot'] !== "NULL" ? $location['slot'] : " ") . str_repeat(" ", 50), 0, 50);
+         $line .= substr(($location['locid'] !== "NULL" ? $location['locid'] : " ") . str_repeat(" ", 50), 0, 50);
+         $line .= substr(($location['spokenVerification'] !== "NULL" ? $location['spokenVerification'] : " ") . str_repeat(" ", 50), 0, 50);
+         $line .= substr(($location[$dv] !== "NULL" ? $location[$dv] : " ") . str_repeat(" ", 50), 0, 5);
+         $line .= substr(($location['postAisle'] !== "NULL" ? $location['postAisle'] : " ") . str_repeat(" ", 50), 0, 50);
+         $line .= "\n";
+         fwrite($file, $line);
+      }
+   }
+
+   public function exportCDTable(Request $request) {
+      set_time_limit(0);
+
+      $siteId = $request->input('siteId');
+      $siteName = $request->input('siteName');
+      $dv = $request->input('dv');
+      $locations = DVLocations::where('site', $siteId)->get();
+
+      DB::table('core_location_import_data')->delete();
+      foreach ($locations as $location) {
+//         insert into vw_import_location (importID, siteName, preAisle, aisle, postAisle,
+//         slot, checkDigits, spokenVerification, locationIdentifier) Values (999999,
+//         'Default', 'Building 9999', '9999', 'Bay 9999', '9999', '9999', '99',
+//         '999999999')
+//         DB::connection()->enableQueryLog();
+         DB::table('vw_import_location')->insert([
+             'importID' => $location['id'],
+             'siteName' => $siteName,
+             'preAisle' => $location['preAisle'],
+             'aisle' => $location['aisle'],
+             'postAisle' => $location['postAisle'],
+             'slot' => $location['slot'],
+             'checkDigits' => $location[$dv],
+             'spokenVerification' => $location['spokenVerification'],
+             'locationIdentifier' => $location['locid']]);
+//         var_dump(DB::getQueryLog());
+      }
+   }
+
    public function printDVSel(Request $request) {
 
       function centralizeDV($dv) {
@@ -275,7 +329,7 @@ class DVController extends Controller {
       $siteId = $request->input('siteId');
 
       DB::connection()->enableQueryLog();
-      $ids = DVLocations::whereDate('updated_at', Carbon::today())-> where('site', $siteId)->get();
+      $ids = DVLocations::whereDate('updated_at', Carbon::today())->where('site', $siteId)->get();
       var_dump(DB::getQueryLog());
 
       try {

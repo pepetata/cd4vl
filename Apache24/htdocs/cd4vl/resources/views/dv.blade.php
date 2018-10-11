@@ -32,6 +32,12 @@
                {!! Form::select('site', $sites, null) !!}
                @endif
             </div>
+               <br><br>
+            <div id='printDiv' class='invisible updateDV pt-3'>
+               <button type="button" onclick="printDVSel()" class="myButton mb-3">@lang('lang.dv.printselected')</button>
+               <button type="button" onclick="printDVToday()" class="myButton mb-3">@lang('lang.dv.printtoday')</button>
+               <p id="printing" class="blink_me">@lang('lang.dv.printing')</p>
+            </div>
          </div>
          <div class='col vertical'>
             <div id="updateButton" class='invisible'>
@@ -54,15 +60,50 @@
                      <img class="dvBut" src="{{ URL::asset('images/dv5.png')}}" alt="Digito Verificador">
                   </button>
                </div>
-               <button type="button" onclick="printDVSel()" class="myButton mb-3">@lang('lang.dv.printselected')</button>
-               <button type="button" onclick="printDVToday()" class="myButton mb-3">@lang('lang.dv.printtoday')</button>
+               <div class="text-center divBorder updateDV">
+                  <label>@lang('lang.dv.exportFix')</label>
+                  <br>
+                  <button type="button" onclick="exportCDFix('dv1')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv1.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDFix('dv2')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv2.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDFix('dv3')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv3.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDFix('dv4')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv4.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDFix('dv5')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv5.png')}}" alt="Digito Verificador">
+                  </button>
+               </div>
+               <div class="text-center divBorder updateDV">
+                  <label>@lang('lang.dv.exportTable')</label>
+                  <br>
+                  <button type="button" onclick="exportCDTable('dv1')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv1.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDTable('dv2')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv2.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDTable('dv3')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv3.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDTable('dv4')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv4.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDTable('dv5')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv5.png')}}" alt="Digito Verificador">
+                  </button>
+               </div>
                <label id="updating" class="blink_me">@lang('lang.dv.updating')</label>
-               <label id="printing" class="blink_me">@lang('lang.dv.printing')</label>
             </div>
          </div>
          <div class='col vertical'>
             <div id="listButton" class='invisible'>
-               <textarea id="slotList" rows="6"></textarea>
+               <textarea id="slotList" rows="8" cols='35'></textarea>
                <br>
                <button type="button" onclick="loadTextLocs()" class="myButton">@lang('lang.dv.searchlist')</button>
                <label id="listing" class="blink_me">@lang('lang.dv.listing')</label>
@@ -133,8 +174,8 @@
 
       document.onkeydown = tabup;
    });
-   
-      var alertMsg = (function () {
+
+   var alertMsg = (function () {
       return {
          1: "@lang('lang.dv.alert1')",
          2: "@lang('lang.dv.alert2')",
@@ -147,6 +188,8 @@
          9: "@lang('lang.dv.alert9')",
          10: "@lang('lang.dv.alert10')",
          11: "@lang('lang.dv.alert11')"
+         , 12: "@lang('lang.dv.alert12')"
+         , 13: "@lang('lang.dv.alert13')"
       }
    }());
 

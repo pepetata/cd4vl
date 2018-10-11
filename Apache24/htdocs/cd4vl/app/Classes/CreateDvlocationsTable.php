@@ -22,6 +22,7 @@ class CreateDvlocationsTable extends Migration
          $table->string('aisle',50)->nullable();
          $table->string('postAisle',50)->nullable();
          $table->string('slot',50)->nullable();
+         $table->string('spokenVerification',50)->nullable();
          $table->string('dv1',5)->nullable();
          $table->string('dv2',5)->nullable();
          $table->string('dv3',5)->nullable();

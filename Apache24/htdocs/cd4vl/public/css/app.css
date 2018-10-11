@@ -131,6 +131,10 @@
   background-color: #ffbb80;
   padding-bottom: 5px; }
 
+#updateButton .divBorder {
+  margin-top: 0px;
+  padding-top: 0; }
+
 @media only screen and (max-width: 600px) {
   #configurarDiv, #instructions {
     margin: auto;

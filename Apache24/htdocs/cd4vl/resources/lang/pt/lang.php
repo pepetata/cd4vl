@@ -161,11 +161,12 @@ return [
     , 'endereco.alert17' => 'Esse processo importará apenas novos endreços do arquivo .csv selecionado.\n\nO arquivo .csv deve ter os seguintes campos nesta ordem: scannedVerification, preAisle, aisle, postAisle, slot.\n\nConfirma que você deseja importar endereços ?'
     , 'endereco.alert18' => ''
 
-
     , 'dv.title' => "Sistema Auxiliar ao VoiceLink - Dígito de Verificação"
     , 'dv.selectcd' => "Selection o CD"
     , 'dv.dc' => "Centro de Distribuição: "
     , 'dv.updateVL' => "Atualizar DVs no VoiceLink"
+    , 'dv.exportFix' => "Exportar DVs para Arq. Texto"
+    , 'dv.exportTable' => "Exportar DVs para Tabela Temporária"
     , 'dv.printselected' => "Imprimir DVs selecionados"
     , 'dv.printtoday' => "Imprimir DVs criados hoje"
     , 'dv.updating' => "Aguarde!! Atualizandos os DVs no VoiceLink."
@@ -193,6 +194,8 @@ return [
     , 'dv.alert9' => "Qual é o IP da impressora (xxx.xxx.xxx.xxx:port)?"
     , 'dv.alert10' => "As etiquetas foram enviadas para a impressora com sucesso!!!"
     , 'dv.alert11' => 'Confirma que deseja imprimir as etiquetas dos DVs gerados hoje?'
+    , 'dv.alert12' => '*** Use este processo somente se o seu VoiceLink estiver configurado para importar do arquivo texto *** \n\nEste processo gerará um arquivo simples coreloc*.dat (na pasta raiz deste aplicativo) a ser usado para importar endereços no VoiceLink.\n\nVocê terá que mover este arquivo para a pasta correta do servidor VoiceLink manualmente. Geralmente é:\n\nC:\\\Arquivos de Programas\\\Vocollect\\\Import\\\{nome do site} --- onde (nome do site) é o nome do Centro de Distribuição.\n\nMas pode ter sido alterado durante a instalação do VL\n\nDeseja continuar?'
+    , 'dv.alert13' => '*** Use este recurso apenas se o seu VoiceLink estiver configurado para importar via tabela ***\n\nEste processo exportará todos os endereços com o DV selecionado para uma tabela temporária no banco de dados do VoiceLink e será importado para o VoiceLink automaticamente\n\nVocê quer continuar?'
 
     , 'connection.failed.parms' => "Falha na conexão ao banco de dados. Reveja os parametros informados."
     , 'connection.ok.table' => "Parâmetros gravados com sucesso. A tabela já existe e não foi alterada !!!"

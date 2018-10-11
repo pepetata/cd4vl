@@ -42,7 +42,8 @@ Route::post('/copyFromVLCSV', 'LocationController@copyFromVLCSV');
 
 Route::get('/generateDV', 'DVController@generateDV');
 Route::get('/updateVL', 'DVController@updateVL');
-Route::get('/updateVLToday', 'DVController@updateVLToday');
+Route::get('/exportCDFix', 'DVController@exportCDFix');
+Route::get('/exportCDTable', 'DVController@exportCDTable');
 Route::get('/printDVSel', 'DVController@printDVSel');
 Route::get('/printDVToday', 'DVController@printDVToday');
 

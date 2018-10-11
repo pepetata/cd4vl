@@ -45,7 +45,7 @@
             </div>
 
          </div>
-         <div id="copyButtonDiv" class='col-9 invisible text-center'>
+         <div id="copyButtonDiv" class='col-9 text-center'>
             <div id="importVLDiv" class="row text-center">
                <div class='col vertical'>
                   <div id="copyButton">
