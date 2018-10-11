@@ -108,6 +108,29 @@
 .flags {
   float: right; }
 
+#locationFunctions hr {
+  margin: 4px; }
+
+#siteInput {
+  background-color: peachpuff;
+  padding-bottom: 5px; }
+
+#copyFromAisleDiv {
+  background-color: #ffc999;
+  padding-bottom: 5px; }
+
+#importVLDiv {
+  background-color: #ffbb80;
+  padding-bottom: 5px; }
+
+#importFixDiv {
+  background-color: #ffd6b3;
+  padding-bottom: 5px; }
+
+#importCSVDiv {
+  background-color: #ffbb80;
+  padding-bottom: 5px; }
+
 @media only screen and (max-width: 600px) {
   #configurarDiv, #instructions {
     margin: auto;

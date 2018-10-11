@@ -108,4 +108,103 @@ class LocationController extends Controller {
       return 'abc';
    }
 
+   public function copyFromVLFix(Request $request) {
+      set_time_limit(0);
+      $file = "flatfile";
+
+//      $siteId = $request->input('siteId');
+      $path = $request->file($file)->getRealPath();
+      $siteId = $request->get('siteid');
+
+      if ($request->hasFile($file)) {
+         $nread = 0;
+         $nnew = 0;
+         foreach (file($path) as $line) {
+//            echo $line . "\r\n";
+            $preaisle = trim(substr($line, 0, 50));
+            $aisle = trim(substr($line, 50, 50));
+            $postaisle = trim(substr($line, 255, 50));
+            $slot = trim(substr($line, 100, 50));
+            $locid = trim(substr($line, 150, 50));
+//            echo "$locid   $preaisle   $aisle   $postaisle    $slot" . "\r\n";
+            $loc = DVLocations::where([['site', $siteId], ['locid', $locid]])->exists();
+            $nread++;
+            if (!$loc) {
+               $newloc = new DVLocations;
+               $newloc->site = $siteId;
+               $newloc->locid = $locid;
+               $newloc->preAisle = $preaisle;
+               $newloc->aisle = $aisle;
+               $newloc->postAisle = $postaisle;
+               $newloc->slot = $slot;
+               $newloc->save();
+               $nnew++;
+            }
+//            foreach ($newLocs as $newLoc) {
+//               DB::table('dv_locations')->insert(
+//                       ['site' => $siteId, 'locid' => $locid, 'aisle' => $newLoc->aisle, 'created_at' => date('Y-m-d H:i:s')]
+//               );
+//               //                  ob_flush();
+//            }
+         }
+//         if ($data->count()) {
+//            foreach ($data as $key => $value) {
+//               $arr[] = ['name' => $value->name, 'details' => $value->details];
+//            }
+//            if (!empty($arr)) {
+//               \DB::table('products')->insert($arr);
+//               dd('Insert Record successfully.');
+//            }
+//         }
+      } else
+         return json_encode('Request data does not have any files to import.');
+//      $newLocs = DB::select('select * from core_locations l, core_location_tag t where tag_id = '.$siteId.' AND tagged_id = locationid AND scannedVerification not in (select locid from dv_locations)');
+//      foreach ($newLocs as $newLoc) {
+//         DB::table('dv_locations')->insert(
+//                 ['site' => $siteId, 'locid' => $newLoc->scannedVerification, 'aisle' => $newLoc->aisle, 'created_at' => date('Y-m-d H:i:s')]
+//         );
+//      }
+      return json_encode(['read' => $nread, 'new' => $nnew]);
+   }
+
+   public function copyFromVLCSV(Request $request) {
+      set_time_limit(0);
+      $file = "csvfile";
+
+//      $siteId = $request->input('siteId');
+      $path = $request->file($file)->getRealPath();
+      $siteId = $request->get('siteid');
+
+      if ($request->hasFile($file)) {
+         $nread = 0;
+         $nnew = 0;
+         $file = fopen($path, 'r');
+         while (($line = fgetcsv($file)) !== FALSE) {
+            if (strtolower($line[0]) === strtolower('﻿scannedVerification'))
+               continue;
+            $locid = trim($line[0]);
+            $preaisle = trim($line[1]);
+            $aisle = trim($line[2]);
+            $postaisle = trim($line[3]);
+            $slot = trim($line[4]);
+//            echo "$locid   $preaisle   $aisle   $postaisle    $slot" . "\r\n";
+            $loc = DVLocations::where([['site', $siteId], ['locid', $locid]])->exists();
+            $nread++;
+            if (!$loc) {
+               $newloc = new DVLocations;
+               $newloc->site = $siteId;
+               $newloc->locid = $locid;
+               $newloc->preAisle = $preaisle;
+               $newloc->aisle = $aisle;
+               $newloc->postAisle = $postaisle;
+               $newloc->slot = $slot;
+               $newloc->save();
+               $nnew++;
+            }
+         }
+      } else
+         return json_encode('Request data does not have any files to import.');
+      return json_encode(['read' => $nread, 'new' => $nnew]);
+   }
+
 }

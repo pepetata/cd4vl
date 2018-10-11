@@ -122,10 +122,13 @@ return [
     , 'endereco.title' => "VoiceLink Addon System - Locations"
     , 'endereco.selectcd' => "Select DC"
     , 'endereco.cd' => "Distribution Center: "
-    , 'endereco.copyVL' => "Copy VoiceLink Locations"
-    , 'endereco.copying' => "Wait!!Copying VoiceLink locations."
+    , 'endereco.importVL' => "Import Locations from VL"
+    , 'endereco.importFix' => "Import Locations from a Flat File"
+    , 'endereco.importCSV' => "Import Locations from a CSV File"
+    , 'endereco.import' => "Import"
+    , 'endereco.copying' => "Wait!! Importing locations..."
     , 'endereco.copyaisle' => "Copy from aisle: "
-    , 'endereco.copyaisleB' => "Copy from aisle"
+    , 'endereco.copyaisleB' => "Copy"
     , 'endereco.copyingaisle' => "Wait!! Copying slots from aisle."
     , 'endereco.filter' => "Select aisle: "
     , 'endereco.id' => "Id"
@@ -147,11 +150,16 @@ return [
     , 'endereco.alert6' => 'Do you want to number all the slots below?'
     , 'endereco.alert7' => 'Starting number?'
     , 'endereco.alert8' => 'Select the Distribution Center before !!!'
-    , 'endereco.alert9' => 'Confirm that you want to copy locations from VL?'
+    , 'endereco.alert9' => 'This import process will access a VoiceLink table directly and this is not recommended by Honeywell Vocollect. This access from outside can provoque a lock on the table and interfere on VoiceLink. Use this process on your own risk and only if nobody is connected to VL via browser or via a talkman device.\n\n Confirm that you want to copy locations from VL?'
     , 'endereco.alert10' => 'Nothing found to copy!!'
-    , 'endereco.alert11' => 'Copy finished !!! Copied locations = '
+    , 'endereco.alert11' => 'Import finished !!! Imported locations = '
     , 'endereco.alert12' => "Select the source aisle !!!"
     , 'endereco.alert13' => 'Do you confirm that you want to copy the locations from the aisle'
+    , 'endereco.alert14' => 'This process will only import new locations from the selected flat file.\n\nConfirm that you want to import locations?'
+    , 'endereco.alert15' => 'First select a file !!'
+    , 'endereco.alert16' => 'Import finished !!! Imported/read locations = '
+    , 'endereco.alert17' => 'This process will only import new locations from the selected .csv file.\n\nThe .csv file must have the following fields in this order: scannedVerification, preAisle, aisle, postAisle, slot.\n\nConfirm that you want to import locations?'
+    , 'endereco.alert18' => ''
 
     , 'dv.title' => "VoiceLink Addon System - Check Digit"
     , 'dv.selectcd' => "Select DC"

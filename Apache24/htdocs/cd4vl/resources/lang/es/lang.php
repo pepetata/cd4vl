@@ -85,6 +85,7 @@ return [
     , 'welcome.instruction.location.line8' => "<li><strong>Si necesita usar nivel, utilice letras en la ubicación: 11A, 45C.</strong></li>"
     
     , 'welcome.instruction.cd' => "Dígitos de Verificación"
+    , 'welcome.instruction.cd.nlines' => "17"
     , 'welcome.instruction.cd.line1' => "<li>Haga clic en el botón <strong> <code> [DV]</code></strong>;</li>"
     , 'welcome.instruction.cd.line2' => "<li>El primero en hacer es seleccionar cada pasillo;</li>"
     , 'welcome.instruction.cd.line3' => "<li>A continuación, seleccione todas las ubicaciones del pasillo o sólo algunos;</li>"
@@ -122,8 +123,11 @@ return [
     , 'endereco.title' => "Sistema Auxiliar de VoiceLink - Ubicación"
     , 'endereco.selectcd' => "Seleccione el CD"
     , 'endereco.cd' => "Centro de distribución: "
-    , 'endereco.copyVL' => "Copiar ubicaciones de VoiceLink"
-    , 'endereco.copying' => "Espera !! Copiando ubicaciones de VoiceLink"
+    , 'endereco.importVL' => "Importar ubicación de VL"
+    , 'endereco.importFix' => "Importar ubicación de archivo texto"
+    , 'endereco.importCSV' => "Importar ubicación de archivo .csv"
+    , 'endereco.import' => "Importar"
+    , 'endereco.copying' => "Espera!! Importando ubicaciones ..."
     , 'endereco.copyaisle' => "Copiar del pasillo: "
     , 'endereco.copyaisleB' => "Copiar del pasillo"
     , 'endereco.copyingaisle' => "Espera !! Copiando ubicaciones del pasillo."
@@ -152,6 +156,13 @@ return [
     , 'endereco.alert11' => '¡Copia terminada! Ubicaciones copiadas ='
     , 'endereco.alert12' => "¡Seleccione el pasillo de origen!"
     , 'endereco.alert13' => '¿Confirma que desea copiar las ubicaciones desde el pasillo'
+    , 'endereco.alert14' => '¿Confirma que desea copiar las ubicaciones del archivo plano selecionado?'
+    , 'endereco.alert14' => 'Este proceso sólo importará nuevas ubicaciones del archivo seleccionado. \n\n¿Confirma que desea importar ubicaciones?'
+    , 'endereco.alert15' => 'Seleccione el arquivo !!'
+    , 'endereco.alert16' => '¡Importación finalizada !!! Ubicaciones importadas/leídas = '
+    , 'endereco.alert17' => 'Este proceso sólo importará nuevas ubicaciones del archivo seleccionado.\n\nEl archivo .csv debe tener los siguientes campos en este orden: scannedVerification, preAisle, aisle, postAisle, slot.\n\n¿Confirma que desea importar ubicaciones?'
+    , 'endereco.alert18' => ''
+
 
     , 'dv.title' => "Sistema Auxiliar de VoiceLink - Dígitos de Verificación"
     , 'dv.selectcd' => "Seleccione el CD"

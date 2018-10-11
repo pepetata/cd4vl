@@ -37,7 +37,8 @@ Route::get('/getAisles', 'LocationController@getAisles');
 Route::get('/getLocs', 'LocationController@getLocs');
 Route::get('/updateData', 'LocationController@updateData');
 Route::get('/updateLocation', 'LocationController@updateLocation');
-Route::post('/importCSV', 'LocationController@importCSV');
+Route::post('/copyFromVLFix', 'LocationController@copyFromVLFix');
+Route::post('/copyFromVLCSV', 'LocationController@copyFromVLCSV');
 
 Route::get('/generateDV', 'DVController@generateDV');
 Route::get('/updateVL', 'DVController@updateVL');

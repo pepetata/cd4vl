@@ -1,3 +1,5 @@
+"use strict";
+
 $(function () {
    $('[data-toggle="tooltip"]').tooltip()
 })
@@ -242,6 +244,98 @@ function copyFromVL() {
 }
 ;
 
+function copyFromVLFix() {
+   // check if selected site
+   if (!$("#flatfile").val()) {
+      alert(alertMsg[15]);
+      return;
+   }
+   if (!confirm(alertMsg[14]))
+      return;
+   $("#copying").show();
+
+   var formData = new FormData(document.getElementById("flatfileForm"));
+   formData.append("siteid", $("#site").val());
+   $.ajax({
+      type: 'POST',
+      url: 'copyFromVLFix',
+      data: formData,
+      processData: false, // tell jQuery not to process the data
+      contentType: false, // tell jQuery not to set contentType
+      success: function (resp) {
+         var data = JSON.parse(resp);
+         var read = data.read;
+         var nnew = data.new;
+         $("#copying").hide();
+         if (nnew > 0) {
+            var e = {};
+            e.target = {};
+            e.target.value = $("#site").val();
+            changedSite(e);
+         }
+         setTimeout(function () {
+            if (nnew == 0)
+               alert(alertMsg[10]);
+            else
+               alert(alertMsg[16] + nnew + '/' + read);
+         }, 100);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         console.log(jqXHR, textStatus, errorThrown);
+      }
+   });
+
+
+}
+;
+
+function copyFromVLCSV() {
+   // check if selected site
+   if (!$("#csvfile").val()) {
+      alert(alertMsg[15]);
+      return;
+   }
+   if (!confirm(alertMsg[17]))
+      return;
+   $("#copying").show();
+
+   var formData = new FormData(document.getElementById("csvfileForm"));
+   formData.append("siteid", $("#site").val());
+   $.ajax({
+      type: 'POST',
+      url: 'copyFromVLCSV',
+      data: formData,
+      processData: false, // tell jQuery not to process the data
+      contentType: false, // tell jQuery not to set contentType
+      success: function (resp) {
+         var data = JSON.parse(resp);
+         var read = data.read;
+         var nnew = data.new;
+         $("#copying").hide();
+         if (nnew > 0) {
+            var e = {};
+            e.target = {};
+            e.target.value = $("#site").val();
+            changedSite(e);
+         }
+         setTimeout(function () {
+            if (nnew == 0)
+               alert(alertMsg[10]);
+            else
+               alert(alertMsg[16] + nnew + '/' + read);
+         }, 100);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         console.log(jqXHR, textStatus, errorThrown);
+      }
+   });
+
+
+}
+;
+
 function copyFromAisle() {
    // check if selected site
    if (!$("#fromAisle").val()) {
@@ -358,6 +452,7 @@ function changedSite(e) {
          show("#filterInput");
          show("#updateButton");
          show("#listButton");
+         show("#copyButtonDiv");
       }
    });
 }

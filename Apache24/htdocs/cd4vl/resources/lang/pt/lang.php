@@ -84,6 +84,7 @@ return [
     , 'welcome.instruction.location.line8' => "<li><strong>Se precisar de usar nível, use letras no endereço: 11A, 45C.</strong></li>"
     
     , 'welcome.instruction.cd' => "Dígitos de Verificação"
+    , 'welcome.instruction.cd.nlines' => "17"
     , 'welcome.instruction.cd.line1' => "<li>Clique no botão <strong><code>[DV]</code></strong>;</li>"
     , 'welcome.instruction.cd.line2' => "<li>O primeiro a fazer é selecionar cada corredor;</li>"
     , 'welcome.instruction.cd.line3' => "<li>Depois selecione todos os endereços do corredor ou apenas alguns;</li>"
@@ -121,8 +122,11 @@ return [
     , 'endereco.title' => "Sistema Auxiliar ao VoiceLink - Endereçamento"
     , 'endereco.selectcd' => "Selecione o CD"
     , 'endereco.cd' => "Centro de Distribuição: "
-    , 'endereco.copyVL' => "Copiar endereços do VoiceLink"
-    , 'endereco.copying' => "Aguarde!! Copiando endereços do VoiceLink"
+    , 'endereco.importVL' => "Importar endereços do VoiceLink"
+    , 'endereco.importFix' => "Importar endereços de arq. texto"
+    , 'endereco.importCSV' => "Importar endereços de arq. .csv"
+    , 'endereco.import' => "Importar"
+    , 'endereco.copying' => "Aguarde!! Importando endereços..."
     , 'endereco.copyaisle' => "Copiar do corredor: "
     , 'endereco.copyaisleB' => "Copiar do corredor"
     , 'endereco.copyingaisle' => "Aguarde!! Copiando endereços do corredor"
@@ -151,6 +155,11 @@ return [
     , 'endereco.alert11' => 'Copia finalizada!!! Endereços copiados = '
     , 'endereco.alert12' => "Selecione o corredor de origem!!!"
     , 'endereco.alert13' => 'Confirma que deseja copiar os dados corredor '
+    , 'endereco.alert14' => 'Esse processo importará apenas novos endereços do arquivo texto selecionado.\n\nConfirma se você deseja importar endereços?'
+    , 'endereco.alert15' => 'Selecione o arquivo !!'
+    , 'endereco.alert16' => 'Importação finalizada !!! Endereços importados/lidos = '
+    , 'endereco.alert17' => 'Esse processo importará apenas novos endreços do arquivo .csv selecionado.\n\nO arquivo .csv deve ter os seguintes campos nesta ordem: scannedVerification, preAisle, aisle, postAisle, slot.\n\nConfirma que você deseja importar endereços ?'
+    , 'endereco.alert18' => ''
 
 
     , 'dv.title' => "Sistema Auxiliar ao VoiceLink - Dígito de Verificação"
