@@ -88,8 +88,8 @@ The text font for the check digit should be small enough to force the operators 
 * The first thing to do is copy the locations from Voicelink;
 * To do this, you have 3 options:
   - Direct access to VoiceLink table: click the __[Copy VoiceLink Locations]__ button --> this method is not recommended by Honeywell Vocollect as it may interfere with the proper operation of VoiceLink;
-  - Import Locations from a Flat File: select the flat file to import and click on the apropriate __[Import]__ button;
-  - Import Locations from a CSV File: select the .csv file to import and click on the apropriate __[Import]__ button;
+  - Import Locations from a Flat File: select the flat file to import and click on the apropriate __[Import]__ button. The flat file must have the same layout described in the VoiceLink Implementatio Guide;
+  - Import Locations from a CSV File: select the .csv file to import and click on the apropriate __[Import]__ button. The .csv file must have the following fields in this order: scannedVerification, preAisle, aisle, postAisle, slot, spokenVerification.;
 * This can be done at any time because the system will only copy the addresses that do not exist;
 * Modifications are saved automatically when the cursor leaves the field.
 * If the locations of an aisle are the same as another aisle, use the __[Copy from Aisle]__ button;
