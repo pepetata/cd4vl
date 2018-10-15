@@ -21,14 +21,15 @@ NOTE:
 * the label layout is not done. You have to do it: change the file cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt.
 * the label is using ZPL.
 * please develop your own label and make it available for others: etiquetaXXmmLLL.txt --> XX - label width, LLL - Printer language (ZPL).
-* tested in Windowns 8.
+* tested in Windowns 8 and Windows 10.
 
 # Instalation
 * Access: https://github.com/pepetata/cd4vl.
 * Download the aplication (click on [Clone or Download].
-* Copy the content of the zip file on you machine.
-* Run the start.bat file that is on the root folder of the application.
+* Copy the content of the zip file on you machine. This can be any computer with access to the VoiceLink server.
+* Run the start.bat file that is on the root folder of the application. It will open a "Command Prompt" window.
 * Access the application at http:\\localhost:9080
+* When you are done with the application, you can close the "Command Prompt" window.
 
 # Best Practices - Locations
 Following the concept that __the less the operator listens, the better; the less the operator speaks, the better__, we should try to reduce the position identification when using the voice system.
@@ -83,20 +84,24 @@ The text font for the check digit should be small enough to force the operators 
 * If necessary, delete the table manually.
 
 # Location
-* Click the [Location] button;
+* Click the __[Location]__ button;
 * The first thing to do is copy the locations from Voicelink;
-* To do this, click the [Copy VoiceLink Locations] button;
+* To do this, you have 3 options:
+** Direct access to VoiceLink table: click the __[Copy VoiceLink Locations]__ button --> this method is not recommended by Honeywell Vocollect as it may interfere with the proper operation of VoiceLink;
+** Import Locations from a Flat File: select the flat file to import and click on the apropriate __[Import]__ button;
+** Import Locations from a Flat File: select the flat file to import and click on the apropriate __[Import]__ button;
+** Import Locations from a CSV File: select the .csv file to import and click on the apropriate __[Import]__ button;
 * This can be done at any time because the system will only copy the addresses that do not exist;
 * Modifications are saved automatically when the cursor leaves the field.
-* If the locations of an aisle are the same as another aisle, use the [Copy from Aisle] button;
+* If the locations of an aisle are the same as another aisle, use the __[Copy from Aisle]__ button;
 * __The ideal is to use only the aisle and slot fields__;
 * __If you need to use level, use letters in the slot: 11A, 45C__.
 
 # Check Digit
-* Click the [DV] button;
+* Click the __[DV]__ button;
 * The first to do is select the Distribution Center and than select the aisle;
 * Then select all the locations on the aisle or just a few;
-* Click the [Generate DVs] button to generate the check digits of the selected locations;
+* Click the __[Generate DVs]__ button to generate the check digits of the selected locations;
 * Select the number of digits for the CD. __The ideal would be 2 or 3 (it does not matter that the CD repeats in the aisle)__;
 
 The system will ensure that DV will not be repeated:
@@ -107,15 +112,15 @@ The system will ensure that DV will not be repeated:
 
 __It is highly recommended to change the CD on the most visited locations.__
 
-To do this, enter the locations list, and click [Search locations from the list];
+To do this, enter the locations list, and click __[Search locations from the list]__;
 
 * Select all of the locations;
-* Click the [Generate DVs] button;
+* Click the __[Generate DVs]__ button;
 
 To print the labels:
 
-* Select the aisle, select the locations and then click [Print Selected CDs] or;
-* Click [Print CDs Generated Today];
+* Select the aisle, select the locations and then click __[Print Selected CDs]__ or;
+* Click __[Print CDs Generated Today]__;
 
 __Rotate CDs frequently to avoid memorization.__
 
