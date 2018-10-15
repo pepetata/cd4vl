@@ -123,9 +123,10 @@ To print the labels:
 
 __Rotate CDs frequently to avoid memorization.__
 
-To do this,
+To do this, you have to decide which CD will be used on the day and choose the apropriate export method:
 
-* decide which CD will be used on the day
-* click the 'Update CDs in VoiceLink' button.
+* __Export CDs to VoiceLink__: this method will access a VoiceLink table directly by this application and this is not recommended by Honeywell Vocollect. This access from outside can provoque a lock on the table and interfere on VoiceLink normal operation. Use this method on your own risk and only if nobody is connected to VL via browser or via a talkman device.
+* __Export CDs to Flat File__: only use this method if your VoiceLink is setup to import from flat file. This method will generate a coreloc*.dat flat file (in the root folder of this application) to be used to import in VoiceLink. You will have to move this file to the correct VoiceLink server folder manually. Usually it is:\n\nC:\\\Program Files\\\Vocollect\\\Import\\\{site name} --- where (site name) is the name of the Distribution Center. But it could have being changed during VL installation.
+* __Export CDs to Import Table__: 'only use this if your VoiceLink is setup to import from table. This process will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically.
 
 Do not forget to tell the operation which is the CD of the day.
