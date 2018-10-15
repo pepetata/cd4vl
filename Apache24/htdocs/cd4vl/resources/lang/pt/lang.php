@@ -9,11 +9,11 @@ return [
     , 'welcome.instruction.cd4vl.nlines' => "15"
     , 'welcome.instruction.cd4vl.line1' => "<p><strong>Dígito de Verificação para Honeywell Vocollect VoiceLink.</strong></p>"
     , 'welcome.instruction.cd4vl.line2' => "<p>Este aplicativo tem como objetivo simplificar os endereços dos produtos e criar cinco dígitos de verificação para cada local:</p>"
-    , 'welcome.instruction.cd4vl.line3' => "<li>Copia os locais da VL;</li>"
+    , 'welcome.instruction.cd4vl.line3' => "<li>Importa os endereços da VL de 3 maneiras diferentes;</li>"
     , 'welcome.instruction.cd4vl.line4' => "<li>Permitir editar esses locais para ter apenas informações de corredor e posição (pode ter outras, mas não é recomendado);</li>"
     , 'welcome.instruction.cd4vl.line5' => "<li>Gerar dígitos de verificação;</li>"
     , 'welcome.instruction.cd4vl.line6' => "<li>Imprimir etiquetas para os locais.</li>"
-    , 'welcome.instruction.cd4vl.line7' => "<p>Vem com o seu próprio Apache v2.4 para Windows.</p>"
+    , 'welcome.instruction.cd4vl.line7' => "<p>Vem com o seu próprio Apache v2.4 para Windows. Puede ejecutarlo en cualquier computadora con acceso al servidor VoiceLink.</p>"
     , 'welcome.instruction.cd4vl.line8' => "<p><strong><code>*** Somente para SQL Server ***</code></strong></p>"
     , 'welcome.instruction.cd4vl.line9' => "<p>Para usá-lo, execute o arquivo start.bat e abra o navegador com o URL http://localhost:9080</p>"
     , 'welcome.instruction.cd4vl.line10' => "<p>NOTA:</p>"
@@ -21,15 +21,16 @@ return [
     , 'welcome.instruction.cd4vl.line12' => "<li>o layout da etiqueta não foi feito. Modifique o arquivo <code>cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt</code>.</li>"
     , 'welcome.instruction.cd4vl.line13' => "<li>a etiqueta foi feita usando ZPL.</li>"
     , 'welcome.instruction.cd4vl.line14' => "<li>por favor desenvolva sua própria etiqueta e torne-a disponível para outras pessoas: etiquetaXXmmLLL.txt -> XX - largura da etiqueta, LLL - Linguagem da impressora (ZPL).</li>"
-    , 'welcome.instruction.cd4vl.line15' => "<li>testado em Windowns 8.</li>"
+    , 'welcome.instruction.cd4vl.line15' => "<li>testado em Windowns 8 e Windows 10.</li>"
 
     , 'welcome.instruction.instalation' => "Instalação"
-    , 'welcome.instruction.instalation.nlines' => "5"
+    , 'welcome.instruction.instalation.nlines' => "6"
     , 'welcome.instruction.instalation.line1' => '<li>Acesse: <a href="https://github.com/pepetata/cd4vl" target="_blank">https://github.com/pepetata/cd4vl</a>.</li>'
     , 'welcome.instruction.instalation.line2' => "<li>Baixe o aplicativo (clique em <strong> <code> [Clone or Download] </code> </strong>.</li>"
-    , 'welcome.instruction.instalation.line3' => "<li>Copie o conteúdo do arquivo zip em sua máquina.</li>"
+    , 'welcome.instruction.instalation.line3' => "<li>Copie o conteúdo do arquivo zip em sua máquina. Pode ser qualquer computador com acesso ao servidor VoiceLink.</li>"
     , 'welcome.instruction.instalation.line4' => "<li>Execute o arquivo <code> start.bat </code> que está na pasta raiz do aplicativo.</li>"
     , 'welcome.instruction.instalation.line5' => '<li>Acesse o aplicativo em <a href="http://localhost:9080" target="_blank">http://localhost:9080</a></li>'
+    , 'welcome.instruction.instalation.line6' => '<li></li>'
 
     , 'welcome.instruction.bplocation' => "Melhores Práticas - Endereços"
     , 'welcome.instruction.bplocation.nlines' => "5"
@@ -73,18 +74,21 @@ return [
     , 'welcome.instruction.setup.line6' => "<li>Se necessário, apague a tabela ('dv_locations') manualmente.</li>"
     
     , 'welcome.instruction.location' => "Endereço"
-    , 'welcome.instruction.location.lines' => "8"
+    , 'welcome.instruction.location.nlines' => "11"
     , 'welcome.instruction.location.line1' => "<li>Clique no botão <strong><code>[Endereços]</code></strong>;</li>"
     , 'welcome.instruction.location.line2' => "<li>O primeiro a fazer é copiar os endereços do Voicelink;</li>"
-    , 'welcome.instruction.location.line3' => "<li>Para isso, clique no botão <strong><code>[Copiar endereços do VoiceLink]</code></strong>;</li>"
-    , 'welcome.instruction.location.line4' => "<li>Isso pode ser feito a qualquer momento pois o sistema vai copiar apenas os endereços que não existe;</li>"
-    , 'welcome.instruction.location.line5' => "<li>As modificações são gravadas automaticamente quando o cursor sair do campo.</li>"
-    , 'welcome.instruction.location.line6' => "<li>Se os endereços de um corredor forem iguais a outro corredor, use o botão <strong><code>[Copiar do corredor]</code></strong>;</li>"
-    , 'welcome.instruction.location.line7' => "<li><strong>O ideal é usar apenas os campos corredor e endereço;</strong></li>"
-    , 'welcome.instruction.location.line8' => "<li><strong>Se precisar de usar nível, use letras no endereço: 11A, 45C.</strong></li>"
+    , 'welcome.instruction.location.line3' => "<li>Para fazer isso, você tem 3 opções:</li>"
+    , 'welcome.instruction.location.line4' => "<ul><li><strong style='color:red'>Acesso direto à tabela do VoiceLink</strong>: clique no botão <strong>[Importar endereços do VoiceLink]</strong> -> este método não é recomendado pela Honeywell Vocollect, pois pode interferir na operação adequada do VoiceLink;</li>"
+    , 'welcome.instruction.location.line5' => "<li><strong style='color:red'>Importar endereços de arquivo texto</strong>: selecione o arquivo texto a ser importado e clique no botão <strong>[Importar]</strong> apropriado. O arquivo texto deve ter o mesmo layout descrito no VoiceLink Implementatio Guide;</li>"
+    , 'welcome.instruction.location.line6' => "<li><strong style='color:red'>Importar endereços de um arquivo .CSV</strong>: selecione o arquivo .csv para importar e clique no botão <strong>[Importar]</strong> apropriado. O arquivo .csv deve ter os seguintes campos nesta ordem: scannedVerification, preAisle, aisle, postAisle, slot, spokenVerification;</li></ul>"
+    , 'welcome.instruction.location.line7' => "<li>Isso pode ser feito a qualquer momento pois o sistema vai copiar apenas os endereços que não existe;</li>"
+    , 'welcome.instruction.location.line8' => "<li>As modificações são gravadas automaticamente quando o cursor sair do campo.</li>"
+    , 'welcome.instruction.location.line9' => "<li>Se os endereços de um corredor forem iguais a outro corredor, use o botão <strong><code>[Copiar do corredor]</code></strong>;</li>"
+    , 'welcome.instruction.location.line10' => "<li><strong>O ideal é usar apenas os campos corredor e endereço;</strong></li>"
+    , 'welcome.instruction.location.line11' => "<li><strong>Se precisar de usar nível, use letras no endereço: 11A, 45C.</strong></li>"
     
     , 'welcome.instruction.cd' => "Dígitos de Verificação"
-    , 'welcome.instruction.cd.nlines' => "17"
+    , 'welcome.instruction.cd.nlines' => "20"
     , 'welcome.instruction.cd.line1' => "<li>Clique no botão <strong><code>[DV]</code></strong>;</li>"
     , 'welcome.instruction.cd.line2' => "<li>O primeiro a fazer é selecionar cada corredor;</li>"
     , 'welcome.instruction.cd.line3' => "<li>Depois selecione todos os endereços do corredor ou apenas alguns;</li>"
@@ -100,8 +104,11 @@ return [
     , 'welcome.instruction.cd.line13' => "<li>Selecione o corredor,  selecione os endereços e depois clique em <strong><code>[Imprimir DVs selecionados]</code></strong>;</li>"
     , 'welcome.instruction.cd.line14' => "<li>Clique em <strong><code>[Imprimir DVs gerados hoje]</code></strong>;</li>"
     , 'welcome.instruction.cd.line15' => "<p></p><p><strong>Faça o giro dos DVs com frequencia para evitar a memorização</strong>.</p>"
-    , 'welcome.instruction.cd.line16' => "<p>Para isso, decida qual será usado no dia e clique nos botões do 'Atualizar DVs no VoiceLink'</p>"
-    , 'welcome.instruction.cd.line17' => "<p></p><p>Não se esqueça de avisar à operação qual é o DV do dia.</p>"
+    , 'welcome.instruction.cd.line16' => "<p>Para fazer isso, você deve decidir qual DV será usado no dia e escolher o método de exportação apropriado:</p>"
+    , 'welcome.instruction.cd.line17' => "<li><strong style='color:red'>Exportar DV para o VoiceLink</strong>: esse método acessará uma tabela do VoiceLink diretamente por este aplicativo e isso não é recomendado pela Honeywell Vocollect. Esse acesso de fora pode provocar uma bloqueio na tabela e interferir na operação normal do VoiceLink. Utilize este método por sua conta e risco e somente se ninguém estiver conectado à VL via browser ou através de um dispositivo talkman.</li>"
+    , 'welcome.instruction.cd.line18' => "<li><strong style='color:red'>Exportar DVs para arquivo texto</strong>: use este método somente se o seu VoiceLink estiver configurado para importar via arquivos texto. Esse método gerará um arquivo texto coreloc*.dat (na pasta raiz deste aplicativo) a ser usado para importar no VoiceLink. Você terá que mover este arquivo para a pasta correta do servidor VoiceLink manualmente. Geralmente é: C:\\Arquivos de Programas\\Vocollect\\Import\{nome do site} --- onde {nome do site} é o nome do Centro de Distribuição. Mas poderia ter sido alterado durante a instalação do VL.</li>"
+    , 'welcome.instruction.cd.line19' => "<li><strong style='color:red'>Exportar DVs para Tabela Temporária</strong>: use-a somente se o seu VoiceLink estiver configurado para importar via tabela. Esse processo exportará todos os locais com o DV selecionado para uma tabela temporária no banco de dados do VoiceLink e será importado para o VoiceLink automaticamente.</li>"
+    , 'welcome.instruction.cd.line20' => "<p></p><p>Não se esqueça de avisar à operação qual é o DV do dia.</p>"
 
     , 'acessandodb.title' => "Sistema Auxiliar ao VoiceLink"
     , 'acessandodb.h1' => "Acessando o bando de dados do VoiceLink"
@@ -162,9 +169,9 @@ return [
     , 'endereco.alert18' => ''
 
     , 'dv.title' => "Sistema Auxiliar ao VoiceLink - Dígito de Verificação"
-    , 'dv.selectcd' => "Selection o CD"
+    , 'dv.selectcd' => "Selecione o CD"
     , 'dv.dc' => "Centro de Distribuição: "
-    , 'dv.updateVL' => "Atualizar DVs no VoiceLink"
+    , 'dv.updateVL' => "Exportar DVs ao VoiceLink"
     , 'dv.exportFix' => "Exportar DVs para Arq. Texto"
     , 'dv.exportTable' => "Exportar DVs para Tabela Temporária"
     , 'dv.printselected' => "Imprimir DVs selecionados"
@@ -188,7 +195,7 @@ return [
     , 'dv.alert3' => "Quantidade de dígitos no DV?"
     , 'dv.alert4' => "Informe um número entre 2 e 5!!!"
     , 'dv.alert5' => "Preencha o campo com os endereços que deseja mostrar!!!"
-    , 'dv.alert6' => 'Confirma que deseja atualizar o DV selecionado no VoiceLink?'
+    , 'dv.alert6' => 'Este método acessará uma tabela do VoiceLink diretamente por este aplicativo e isso não é recomendado pela Honeywell Vocollect. Esse acesso de fora pode provocar um travamento na mesa e interferir no VoiceLink. Use este método por sua conta e risco e somente se ninguém estiver conectado à VL por meio do navegador ou por meio de um dispositivo talkman.\n\nDeseja exportar o DV selecionado ao VoiceLink?'
     , 'dv.alert7' => 'Atualização efetuada com sucesso!!'
     , 'dv.alert8' => 'Confirma que deseja imprimir as etiquetas dos endereços selecionados?'
     , 'dv.alert9' => "Qual é o IP da impressora (xxx.xxx.xxx.xxx:port)?"

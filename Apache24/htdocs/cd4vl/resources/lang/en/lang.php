@@ -9,11 +9,11 @@ return [
     , 'welcome.instruction.cd4vl.nlines' => "15"
     , 'welcome.instruction.cd4vl.line1' => "<p><strong>Check Digit for Honeywell Vocollect VoiceLink.</strong></p>"
     , 'welcome.instruction.cd4vl.line2' => "<p>This app is intended to simplify the product locations and to create five check digits for each location:</p>"
-    , 'welcome.instruction.cd4vl.line3' => "<li>It copies the locations from VL;</li>"
+    , 'welcome.instruction.cd4vl.line3' => "<li>It import the locations from VL in 3 different ways;</li>"
     , 'welcome.instruction.cd4vl.line4' => "<li>Allow to edit those locations to have only aisle and slot information (can have other but it is not recommended);</li>"
     , 'welcome.instruction.cd4vl.line5' => "<li>Generate check digits;</li>"
     , 'welcome.instruction.cd4vl.line6' => "<li>Print labels for the locations.</li>"
-    , 'welcome.instruction.cd4vl.line7' => "<p>It comes with its own Apache v2.4 for Windows.</p>"
+    , 'welcome.instruction.cd4vl.line7' => "<p>It comes with its own Apache v2.4 for Windows. You can run in it in any computer with access to VoiceLink server.</p>"
     , 'welcome.instruction.cd4vl.line8' => "<p><strong><code>*** SQL Server ONLY ***</code></strong></p>"
     , 'welcome.instruction.cd4vl.line9' => "<p>To use it, run the start.bat file and open the browser with the url http://localhost:9080</p>"
     , 'welcome.instruction.cd4vl.line10' => "<p>NOTE:</p>"
@@ -21,15 +21,16 @@ return [
     , 'welcome.instruction.cd4vl.line12' => "<li>the label layout is not done. Change the file <code>cd4vl\Apache24\htdocs\cd4vl\public\labels\etiqueta.txt</code>.</li>"
     , 'welcome.instruction.cd4vl.line13' => "<li>the label is using ZPL.</li>"
     , 'welcome.instruction.cd4vl.line14' => "<li>please develop your own label and make it available for others: etiquetaXXmmLLL.txt --> XX - label width, LLL - Printer language (ZPL).</li>"
-    , 'welcome.instruction.cd4vl.line15' => "<li>tested in Windowns 8.</li>"
+    , 'welcome.instruction.cd4vl.line15' => "<li>tested in Windowns 8 and Windows 10.</li>"
 
     , 'welcome.instruction.instalation' => "Instalation"
-    , 'welcome.instruction.instalation.nlines' => "5"
+    , 'welcome.instruction.instalation.nlines' => "6"
     , 'welcome.instruction.instalation.line1' => '<li>Access: <a href="https://github.com/pepetata/cd4vl" target="_blank">https://github.com/pepetata/cd4vl</a>.</li>'
     , 'welcome.instruction.instalation.line2' => "<li>Download the aplication (click on <strong><code>[Clone or Download]</code></strong>.</li>"
-    , 'welcome.instruction.instalation.line3' => "<li>Copy the content of the zip file on you machine.</li>"
+    , 'welcome.instruction.instalation.line3' => "<li>Copy the content of the zip file on you machine. It can be any computer with access to the VoiceLink server.</li>"
     , 'welcome.instruction.instalation.line4' => "<li>Run the <code>start.bat</code> file that is on the root folder of the application.</li>"
     , 'welcome.instruction.instalation.line5' => '<li>Access the application at <a href="http://localhost:9080" target="_blank">http://localhost:9080</a></li>'
+    , 'welcome.instruction.instalation.line6' => '<li> When you are done with the application, you can close the "Command Prompt" window.</li>'
 
     , 'welcome.instruction.bplocation' => "Best Practices - Locations"
     , 'welcome.instruction.bplocation.nlines' => "5"
@@ -73,35 +74,41 @@ return [
     , 'welcome.instruction.setup.line6' => "<li>If necessary, delete the table manually.</li>"
 
     , 'welcome.instruction.location' => "Location"
-    , 'welcome.instruction.location.nlines' => "8"
+    , 'welcome.instruction.location.nlines' => "11"
     , 'welcome.instruction.location.line1' => "<li>Click the <strong><code>[Location]</code></strong> button;</li>"
     , 'welcome.instruction.location.line2' => "<li>The first thing to do is copy the locations from Voicelink;</li>"
-    , 'welcome.instruction.location.line3' => "<li>To do this, click the <strong><code>[Copy VoiceLink Locations]</code></strong> button;</li>"
-    , 'welcome.instruction.location.line4' => "<li>This can be done at any time because the system will only copy the addresses that do not exist;</li>"
-    , 'welcome.instruction.location.line5' => "<li>Modifications are saved automatically when the cursor leaves the field.</li>"
-    , 'welcome.instruction.location.line6' => "<li>If the locations of an aisle are the same as another aisle, use the <strong><code>[Copy from Aisle]</code></strong> button;</li>"
-    , 'welcome.instruction.location.line7' => "<li><strong>The ideal is to use only the aisle and slot fields;</strong></li>"
-    , 'welcome.instruction.location.line8' => "<li><strong>If you need to use level, use letters in the slot: 11A, 45C.</strong></li>"
+    , 'welcome.instruction.location.line3' => "<li>To do this, you have 3 options:</li>"
+    , 'welcome.instruction.location.line4' => "<ul><li><strong style='color:red'>Direct access to VoiceLink table</strong>: click the <strong>[Copy VoiceLink Locations]</strong> button --> this method is not recommended by Honeywell Vocollect as it may interfere with the proper operation of VoiceLink;</li>"
+    , 'welcome.instruction.location.line5' => "<li><strong style='color:red'>Import Locations from a Flat File</strong>: select the flat file to import and click on the apropriate <strong>[Import]</strong> button. The flat file must have the same layout described in the VoiceLink Implementatio Guide;</li>"
+    , 'welcome.instruction.location.line6' => "<li><strong style='color:red'>Import Locations from a CSV File</strong>: select the .csv file to import and click on the apropriate <strong>[Import]</strong> button. The .csv file must have the following fields in this order: scannedVerification, preAisle, aisle, postAisle, slot, spokenVerification.;</li></ul>"
+    , 'welcome.instruction.location.line7' => "<li>This can be done at any time because the system will only copy the addresses that do not exist;</li>"
+    , 'welcome.instruction.location.line8' => "<li>Modifications are saved automatically when the cursor leaves the field.</li>"
+    , 'welcome.instruction.location.line9' => "<li>If the locations of an aisle are the same as another aisle, use the <strong><code>[Copy from Aisle]</code></strong> button;</li>"
+    , 'welcome.instruction.location.line10' => "<li><strong>The ideal is to use only the aisle and slot fields;</strong></li>"
+    , 'welcome.instruction.location.line11' => "<li><strong>If you need to use level, use letters in the slot: 11A, 45C.</strong></li>"
 
     , 'welcome.instruction.cd' => "Check Digit"
-    , 'welcome.instruction.cd.nlines' => "17"
+    , 'welcome.instruction.cd.nlines' => "20"
     , 'welcome.instruction.cd.line1' => "<li>Click the <strong><code>[DV]</code></strong> button;</li>"
     , 'welcome.instruction.cd.line2' => "<li>The first to do is select the Distribution Center and than select the aisle;</li>"
     , 'welcome.instruction.cd.line3' => "<li>Then select all the locations on the aisle or just a few;</li>"
-    , 'welcome.instruction.cd.line4' => "<li>Click the <strong><code>[Generate DVs]</code></strong> button to generate the check digits of the selected locations;</li>"
+    , 'welcome.instruction.cd.line4' => "<li>Click the <strong><code>[Generate CDs]</code></strong> button to generate the check digits of the selected locations;</li>"
     , 'welcome.instruction.cd.line5' => "<li>Select the number of digits for the CD. <strong>The ideal would be 2 or 3 (it does not matter that the CD repeats in the aisle)</strong>;</li>"
-    , 'welcome.instruction.cd.line6' => "<p></p><p>The system will ensure that DV will not be repeated:</p>"
+    , 'welcome.instruction.cd.line6' => "<p></p><p>The system will ensure that CD will not be repeated:</p>"
     , 'welcome.instruction.cd.line7' => "<ul><li>in the slot next to it, if it is has no level, ie, the CD on slot 5 will not be the same as in slot 3, 4, 6 or 7;</li>"
     , 'welcome.instruction.cd.line8' => "<li>next to it, if it has level, ie, the CD on slot 5C will not be equal to slot 5B, 5D, 4C or 6C;</li>"
     , 'welcome.instruction.cd.line9' => "<li>in another aisle with equal slot number, ie, the CD of slot 29 will not be the same as another slot 29 of other aisle.</li></ul>"
     , 'welcome.instruction.cd.line10' => "<p></p><p style='color:red'><strong>It is highly recommended to change the CD on the most visited locations.</strong></p>"
-    , 'welcome.instruction.cd.line11' => "<p>To do this:</p><ul><li>enter the locations list;<li>click <strong><code>[Search locations from the list]</code></strong>;<li>Select all of the locations;</li><li>Click the <strong><code>[Generate DVs]</code></strong> button;</li></ul>"
+    , 'welcome.instruction.cd.line11' => "<p>To do this:</p><ul><li>enter the locations list;<li>click <strong><code>[Search locations from the list]</code></strong>;<li>Select all of the locations;</li><li>Click the <strong><code>[Generate CDs]</code></strong> button;</li></ul>"
     , 'welcome.instruction.cd.line12' => "<p></p><p>To print the labels:</p>"
     , 'welcome.instruction.cd.line13' => "<ul><li>Select the aisle, select the locations and then click <strong><code>[Print Selected CDs]</code></strong> or;</li>"
     , 'welcome.instruction.cd.line14' => "<li>Click <strong><code>[Print CDs Generated Today]</code></strong>;</li></ul>"
     , 'welcome.instruction.cd.line15' => "<p></p><p><strong>Rotate CDs frequently to avoid memorization.</strong></p>"
-    , 'welcome.instruction.cd.line16' => "<p>To do this, </p><ul><li>decide which CD will be used on the day</li><li>click the <code><strong>[Update CDs in VoiceLink]</code></strong> button.</li></ul>"
-    , 'welcome.instruction.cd.line17' => "<p></p><p>Do not forget to tell the operation which is the CD of the day.</p>"
+    , 'welcome.instruction.cd.line16' => "<p>To do this, you have to decide which CD will be used on the day and choose the apropriate export method:</p>"
+    , 'welcome.instruction.cd.line17' => "<li><strong style='color:red'>Export CDs to VoiceLink</strong>: this method will access a VoiceLink table directly by this application and this is not recommended by Honeywell Vocollect. This access from outside can provoque a lock on the table and interfere on VoiceLink normal operation. Use this method on your own risk and only if nobody is connected to VL via browser or via a talkman device.</li>"
+    , 'welcome.instruction.cd.line18' => "<li><strong style='color:red'>Export CDs to Flat File</strong>: only use this method if your VoiceLink is setup to import from flat file. This method will generate a coreloc*.dat flat file (in the root folder of this application) to be used to import in VoiceLink. You will have to move this file to the correct VoiceLink server folder manually. Usually it is: C:\\Program Files\\Vocollect\\Import\{site name} --- where {site name} is the name of the Distribution Center. But it could have being changed during VL installation.</li>"
+    , 'welcome.instruction.cd.line19' => "<li><strong style='color:red'>Export CDs to Import Table</strong>: only use this if your VoiceLink is setup to import from table. This process will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically.</li>"
+    , 'welcome.instruction.cd.line20' => "<p></p><p>Do not forget to tell the operation which is the CD of the day.</p>"
     
     , 'acessandodb.title' => "VoiceLink Addon System"
     , 'acessandodb.h1' => "Accessing VoiceLink database"
@@ -188,14 +195,14 @@ return [
     , 'dv.alert3' => "Number of digits for the CD?"
     , 'dv.alert4' => "Enter a number between 2 and 5 !!!"
     , 'dv.alert5' => "Fill in the field with the locations you want to display !!!"
-    , 'dv.alert6' => 'This process will access a VoiceLink table directly by this application and this is not recommended by Honeywell Vocollect. This access from outside can provoque a lock on the table and interfere on VoiceLink. Use this process on your own risk and only if nobody is connected to VL via browser or via a talkman device.\n\n Do you want to update the selected CD in VoiceLink?'
+    , 'dv.alert6' => 'This method will access a VoiceLink table directly by this application and this is not recommended by Honeywell Vocollect. This access from outside can provoque a lock on the table and interfere on VoiceLink. Use this method on your own risk and only if nobody is connected to VL via browser or via a talkman device.\n\n Do you want to export the selected CD to VoiceLink?'
     , 'dv.alert7' => 'Export performed successfully!!'
     , 'dv.alert8' => 'Do you want to print the labels for the selected locations?'
     , 'dv.alert9' => "What is the IP of the printer (xxx.xxx.xxx.xxx:port)?"
     , 'dv.alert10' => "The labels were sent to the printer successfully !!!"
     , 'dv.alert11' => 'Do you want to print the labels of the CDs generated today?'
-    , 'dv.alert12' => '*** Only use this if your VoiceLink is setup to import from flat file ***\n\nThis process will generate a coreloc*.dat flat file (in the root folder of this application) to be used to import in VoiceLink.\n\nYou will have to move this file to the correct VoiceLink server folder manually. Usually it is:\n\nC:\\\Program Files\\\Vocollect\\\Import\\\{site name} --- where (site name) is the name of the Distribution Center\n\nBut it could have being changed during VL installation\n\nDo you want to continue?'
-    , 'dv.alert13' => '*** Only use this if your VoiceLink is setup to import from table ***\n\nThis process will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically\n\nDo you want to continue?'
+    , 'dv.alert12' => '*** Only use this if your VoiceLink is setup to import from flat file ***\n\nThis method will generate a coreloc*.dat flat file (in the root folder of this application) to be used to import in VoiceLink.\n\nYou will have to move this file to the correct VoiceLink server folder manually. Usually it is:\n\nC:\\\Program Files\\\Vocollect\\\Import\\\{site name} --- where (site name) is the name of the Distribution Center\n\nBut it could have being changed during VL installation\n\nDo you want to continue?'
+    , 'dv.alert13' => '*** Only use this if your VoiceLink is setup to import from table ***\n\nThis method will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically\n\nDo you want to continue?'
 
     , 'connection.failed.parms' => "Connection to database failed. Review the reported parameters."
     , 'connection.ok.table' => "Parâmetros gravados com sucesso. Tabela já existe!!!"
