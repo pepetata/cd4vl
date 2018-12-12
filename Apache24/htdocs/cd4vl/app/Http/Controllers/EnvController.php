@@ -42,6 +42,12 @@ class EnvController extends Controller {
       setEnvironmentValue('DB_PASSWORD', $pass);
       config(['database.connections.sqlsrv.password' => $pass]);
 
+      $url = $request->input('url');
+      $clientId = $request->input('clientid');
+      $clientSecret = $request->input('clientsecret');
+      setEnvironmentValue('VL_URL', $url);
+      setEnvironmentValue('VL_CLIENT_ID', $clientId);
+      setEnvironmentValue('VL_CLIENT_SECRET', $clientSecret);
 
       // check connection
       try {
@@ -49,7 +55,7 @@ class EnvController extends Controller {
             //
          }
       } catch (\Exception $e) {
-         return json_encode(['error' => 1, 'desc' => __('lang.connection.failed.parms'). ' -> ' . $e->getMessage()]);
+         return json_encode(['error' => 1, 'desc' => __('lang.connection.failed.parms') . ' -> ' . $e->getMessage()]);
       }
 
 
@@ -59,16 +65,16 @@ class EnvController extends Controller {
             return json_encode(['error' => 1, 'desc' => __('lang.configurar.saved')]);
          }
       } catch (\Exception $e) {
-         return json_encode(['error' => 1,  'desc' => __('lang.connection.failed.parms'). ' -> ' . $e->getMessage()]);
+         return json_encode(['error' => 1, 'desc' => __('lang.connection.failed.parms') . ' -> ' . $e->getMessage()]);
       }
-            
+
       // create table
       try {
          $x = new CreateDvlocationsTable();
          $x->up();
       } catch (\Exception $e) {
          echo $e->getMessage();
-         return json_encode(['error' => 1, 'desc' => __('lang.configurar.permission'). ' -> ' . $e->getMessage()]);
+         return json_encode(['error' => 1, 'desc' => __('lang.configurar.permission') . ' -> ' . $e->getMessage()]);
       }
 
 

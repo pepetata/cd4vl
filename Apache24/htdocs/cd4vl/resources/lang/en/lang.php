@@ -118,7 +118,8 @@ return [
     , 'errordb.h1' => "There was an error accessing the database!!!"
 
     , 'configurar.title' => "VoiceLink Addon System"
-    , 'configurar.h2' => "Database access parameters"
+    , 'configurar.dbparam' => "Database access parameters"
+    , 'configurar.vlparam' => "VoiceLink REST parameters"
     , 'configurar.save' => "Save"
     , 'configurar.cancel' => "Cancel"
     , 'configurar.saved' => "Parameters saved successfully. Table already exists and was not changed!!!"
@@ -171,11 +172,14 @@ return [
     , 'dv.title' => "VoiceLink Addon System - Check Digit"
     , 'dv.selectcd' => "Select DC"
     , 'dv.dc' => "Distribution Center: "
-    , 'dv.updateVL' => "Export CDs to VoiceLink"
+    , 'dv.updateVL' => "Export CDs via Database"
     , 'dv.exportFix' => "Export CDs to Flat File"
-    , 'dv.exportTable' => "Export CDs to Import Table"
+    , 'dv.exportTable' => "Export CDs via Import Table"
+    , 'dv.exportRest' => "Export CDs via Web Services"
     , 'dv.printselected' => "Print selected CDs"
     , 'dv.printtoday' => "Print CDs Generated Today"
+    , 'dv.genDVAllLocs' => "Generate CDs for All Locations"
+    , 'dv.generatingAll' => "Wait!! Creating CDs for all locations."
     , 'dv.updating' => "Wait!! Exporting Cds ..."
     , 'dv.printing' => "Wait!! Printing labels."
     , 'dv.searchlist' => "Search locations from the list"
@@ -203,6 +207,10 @@ return [
     , 'dv.alert11' => 'Do you want to print the labels of the CDs generated today?'
     , 'dv.alert12' => '*** Only use this if your VoiceLink is setup to import from flat file ***\n\nThis method will generate a coreloc*.dat flat file (in the root folder of this application) to be used to import in VoiceLink.\n\nYou will have to move this file to the correct VoiceLink server folder manually. Usually it is:\n\nC:\\\Program Files\\\Vocollect\\\Import\\\{site name} --- where (site name) is the name of the Distribution Center\n\nBut it could have being changed during VL installation\n\nDo you want to continue?'
     , 'dv.alert13' => '*** Only use this if your VoiceLink is setup to import from table ***\n\nThis method will export all locations with the selected CD to a temporary table in the VoiceLink database, and will be imported to VoiceLink automatically\n\nDo you want to continue?'
+    , 'dv.alert14' => '*** Only use this if you are using VoiceLink 5 .\n\nDo you want to continue?'
+    , 'dv.alert15' => 'Error trying to export!! Check your API Credential. Error code = '
+    , 'dv.alert16' => 'This will update all CDs on all locations on the DC. \n\nAre you sure you want to do this?'
+    , 'dv.alert17' => 'This should be done only once.\n\n Are you REALLY sure you want to do this?'
 
     , 'connection.failed.parms' => "Connection to database failed. Review the reported parameters."
     , 'connection.ok.table' => "Parâmetros gravados com sucesso. Tabela já existe!!!"

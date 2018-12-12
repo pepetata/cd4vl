@@ -41,15 +41,18 @@ Route::post('/copyFromVLFix', 'LocationController@copyFromVLFix');
 Route::post('/copyFromVLCSV', 'LocationController@copyFromVLCSV');
 
 Route::get('/generateDV', 'DVController@generateDV');
+Route::get('/generateDVAllLocs', 'DVController@generateDVAllLocs');
 Route::get('/updateVL', 'DVController@updateVL');
 Route::get('/exportCDFix', 'DVController@exportCDFix');
 Route::get('/exportCDTable', 'DVController@exportCDTable');
+Route::get('/exportCDRest', 'DVController@exportCDRest');
 Route::get('/printDVSel', 'DVController@printDVSel');
 Route::get('/printDVToday', 'DVController@printDVToday');
 
 Route::get('/saveConf', 'EnvController@saveConf');
 
 Route::fallback(function ($request) {
+   echo "nao achou ";
     var_dump($request);
 });
 

@@ -32,11 +32,16 @@
                {!! Form::select('site', $sites, null) !!}
                @endif
             </div>
-               <br><br>
+            <br>
             <div id='printDiv' class='invisible updateDV pt-3'>
                <button type="button" onclick="printDVSel()" class="myButton mb-3">@lang('lang.dv.printselected')</button>
                <button type="button" onclick="printDVToday()" class="myButton mb-3">@lang('lang.dv.printtoday')</button>
                <p id="printing" class="blink_me">@lang('lang.dv.printing')</p>
+            </div>
+            <br>
+            <div id='genDVDiv' class='invisible updateDV pt-3'>
+               <button type="button" onclick="generateDVAllLocs()" class="myButton mb-3">@lang('lang.dv.genDVAllLocs')</button>
+               <p id="generatingAll" class="blink_me">@lang('lang.dv.generatingAll')</p>
             </div>
          </div>
          <div class='col vertical'>
@@ -95,6 +100,25 @@
                      <img class="dvBut" src="{{ URL::asset('images/dv4.png')}}" alt="Digito Verificador">
                   </button>
                   <button type="button" onclick="exportCDTable('dv5')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv5.png')}}" alt="Digito Verificador">
+                  </button>
+               </div>
+               <div class="text-center divBorder updateDV">
+                  <label>@lang('lang.dv.exportRest')</label>
+                  <br>
+                  <button type="button" onclick="exportCDRest('dv1')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv1.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDRest('dv2')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv2.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDRest('dv3')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv3.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDRest('dv4')" class="myButton dv">
+                     <img class="dvBut" src="{{ URL::asset('images/dv4.png')}}" alt="Digito Verificador">
+                  </button>
+                  <button type="button" onclick="exportCDRest('dv5')" class="myButton dv">
                      <img class="dvBut" src="{{ URL::asset('images/dv5.png')}}" alt="Digito Verificador">
                   </button>
                </div>
@@ -190,8 +214,11 @@
          11: "@lang('lang.dv.alert11')"
          , 12: "@lang('lang.dv.alert12')"
          , 13: "@lang('lang.dv.alert13')"
+         , 14: "@lang('lang.dv.alert14')"
+         , 15: "@lang('lang.dv.alert15')"
+         , 16: "@lang('lang.dv.alert16')"
+         , 17: "@lang('lang.dv.alert17')"
       }
    }());
-
 </script>
 @endsection

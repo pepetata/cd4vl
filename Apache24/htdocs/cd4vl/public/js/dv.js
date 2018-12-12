@@ -435,13 +435,14 @@ function emptyDynamicLocs() {
 
 function changedSite(e) {
    console.log(e.target.value);
-   if (! e.target.value) {
-         hide("#filterInput");
-         hide("#updateButton");
-         hide("#printDiv");
-         hide("#listButton");
-         hide("#copyButtonDiv");
-         return;
+   if (!e.target.value) {
+      hide("#filterInput");
+      hide("#updateButton");
+      hide("#printDiv");
+      hide("#genDVDiv");
+      hide("#listButton");
+      hide("#copyButtonDiv");
+      return;
    }
    var siteId = e.target.value;
    hide("#filterInput");
@@ -458,6 +459,7 @@ function changedSite(e) {
          show("#filterInput");
          show("#updateButton");
          show("#printDiv");
+         show("#genDVDiv");
          show("#listButton");
          show("#copyButtonDiv");
       }
@@ -748,6 +750,39 @@ function generateDV() {
 }
 ;
 
+function generateDVAllLocs() {
+   if (!confirm(alertMsg[16]))
+      return;
+   if (!confirm(alertMsg[17]))
+      return;
+   var numdigits = prompt(alertMsg[3], numDigitsDefault);
+
+   if (numdigits == null || numdigits == "") {
+      return;
+   }
+   if (numdigits > 5 || numdigits < 2) {
+      alert(alertMsg[4]);
+      return;
+   }
+   numDigitsDefault = numdigits;
+
+   $("#generatingAll").show();
+   $.ajax({
+      type: 'GET',
+      url: 'generateDVAllLocs',
+      data: {numdigits: numdigits},
+      success: function (data) {
+         $("#generatingAll").hide();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         $("#generatingAll").hide();
+         console.log(jqXHR, textStatus, errorThrown);
+      }
+   });
+
+}
+;
+
 function loadTextLocs(e) {
    if (!$("#slotList").val()) {
       alert(alertMsg[5]);
@@ -829,6 +864,33 @@ function exportCDTable(dv) {
       success: function (data) {
          $("#updating").hide();
          alert(alertMsg[7])
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+         $("#generating").hide();
+         console.log(jqXHR, textStatus, errorThrown);
+         $("#updating").hide();
+      }
+   });
+
+}
+;
+
+function exportCDRest(dv) {
+   if (!confirm(alertMsg[14]))
+      return;
+
+   $("#updating").show();
+   $.ajax({
+      type: 'GET',
+      url: 'exportCDRest',
+      data: {dv: dv, siteId: $("#site").val(), siteName: $("#site>option:selected").html()},
+      success: function (data) {
+         var resp = JSON.parse(data);
+         $("#updating").hide();
+         if (resp.code == 200)
+            alert(alertMsg[7])
+         else
+            alert(alertMsg[15]+resp.code)
       },
       error: function (jqXHR, textStatus, errorThrown) {
          $("#generating").hide();
@@ -927,7 +989,7 @@ function saveConf() {
    $.ajax({
       type: 'GET',
       url: 'saveConf',
-      data: {host: $("#host").val(), port: $("#port").val(), db: $("#db").val(), user: $("#user").val(), pass: $("#pass").val(), },
+      data: {host: $("#host").val(), port: $("#port").val(), db: $("#db").val(), user: $("#user").val(), pass: $("#pass").val(), url: $("#url").val(), clientid: $("#clientid").val(), clientsecret: $("#clientsecret").val()},
       success: function (dataJ) {
          var data = JSON.parse(dataJ);
          if (data.error !== 0) {
